@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   def organizations_login
     # is this check the best place for this?
     if session[:organization_id]
-      redirect_to show_dashboard_path(Organization.find(session[:organization_id]))
+      redirect_to organization_path(Organization.find(session[:organization_id]))
     end
   end
 
