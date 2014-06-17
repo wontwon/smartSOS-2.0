@@ -33,4 +33,7 @@ Smartsos::Application.configure do
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
+
+# Disable enforcing of locales in test environment
+  config.i18n.enforce_available_locales = false
 end
