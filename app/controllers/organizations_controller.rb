@@ -24,6 +24,12 @@ class OrganizationController < ApplicationController
   end
 
   def update
+    if @organization.update(organization_params)
+      redirect_to organization_path(@organization)
+    else
+      flash[:alert] = "Aplogies. You Organization has not been updated."
+      render 'edit'
+    end
   end
 
   private
