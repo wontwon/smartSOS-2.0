@@ -1,0 +1,13 @@
+<div>
+  <h1 class="dashboard-title">Organization Dashboard</h1>
+  <%= link_to "Edit Organization", edit_organization_path(@organization), class:"edit-org" %>
+  <%= link_to "Create New Campaign", new_campaign_path, class:"new-campaign" %>
+</div>
+
+<div class="container" id="dashboard-container">
+  <div class="row">
+    <% @organization.campaigns.each do |campaign| %>
+      <%= render 'organization_show_campaign', campaign: campaign %>
+    <% end %>
+  </div>
+</div>
