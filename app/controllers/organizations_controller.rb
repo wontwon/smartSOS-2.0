@@ -2,6 +2,7 @@ class OrganizationController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update]
 
   def show
+    # check if current organization if equal to @organization
   end
 
   def new
