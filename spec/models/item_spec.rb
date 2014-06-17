@@ -1,5 +1,7 @@
 require 'spec_helper'
 
-describe Item do
-  pending "add some examples to (or delete) #{__FILE__}"
+describe Item do 
+	context "it should have many requests" do
+		it { should have_many(:requests) }
+	end
 end
