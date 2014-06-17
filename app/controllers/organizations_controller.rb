@@ -13,7 +13,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
     if @organization.save
       session[:organization_id] = @organization.id
-      redirect to organization_path(@organization)
+      redirect_to organization_path(@organization)
     else
       flash.now.alert = "Apologies. Your Organization has not been registered."
       render 'new'
