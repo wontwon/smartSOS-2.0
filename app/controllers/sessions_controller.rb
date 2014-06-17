@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if donor = Donor.find_by_email(params[:email])
       if donor.authenticate(params[:password])
         session[:donor_id] = donor.id
-        # need campaign info
+        # need campaign info from session
         redirect_to campaign_path(session[:campaign])
       else
         flash.now.alert = 'Invalid Password'
