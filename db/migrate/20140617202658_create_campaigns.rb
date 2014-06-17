@@ -4,6 +4,7 @@ class CreateCampaigns < ActiveRecord::Migration
       t.belongs_to :organization
       t.string :name, null: false
       t.text :description, null: false
+      t.boolean :active, default: true
       t.date :end_date
 
       t.timestamps
