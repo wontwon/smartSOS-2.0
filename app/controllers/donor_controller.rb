@@ -16,27 +16,7 @@ class DonorsController < ApplicationController
 			render 'new'  
 		end
 	end
-
-	def edit
-	end
-
-	def update
-		if @donor.update(donor_params)
-			redirect_to donor_path(@donor)
-		else
-			render 'edit'
-		end
-	end
-
-	def show
-	end
-
-	def destroy
-		@donor.destroy
-		flash[:alert] = "You have successfully deleted your account."
-		redirect_to root_path
-	end
-
+	
 	private
 
 	def donor_params
