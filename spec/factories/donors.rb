@@ -11,6 +11,5 @@ FactoryGirl.define do
 		factory :invalid_donor do 
 			first_name { nil }
 		end
-
 	end
 end
