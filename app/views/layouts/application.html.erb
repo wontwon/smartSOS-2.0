@@ -15,15 +15,14 @@
 
 <body>
 
-  <% unless current_page?(root_path) %>
-    <div id="home">
-    	<a href="<%=root_path%>">
-        <img src="http://www.clipartbest.com/cliparts/dTr/KRy/dTrKRy8T9.png">
-      </a>
-    </div>
-  <% end %>
-
   <div class="container">
+    <% unless current_page?(root_path) %>
+      <div id="home">
+      	<a href="<%=root_path%>">
+          <img src="http://www.clipartbest.com/cliparts/dTr/KRy/dTrKRy8T9.png">
+        </a>
+      </div>
+    <% end %>
     <%= yield %>
   </div>
 
