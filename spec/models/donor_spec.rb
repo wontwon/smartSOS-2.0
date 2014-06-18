@@ -10,3 +10,4 @@ describe Donor do
 		it { should have_many(:pledges) }
 	end
 end
+

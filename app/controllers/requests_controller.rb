@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
 before_action :set_campaign, only: [:edit, :new]
+before_action :logged_in?
 
   def new
     @organization = @campaign.organization
@@ -45,5 +46,10 @@ before_action :set_campaign, only: [:edit, :new]
     flash[:alert] = "The campaign you were looking for could not be found."
   end
 
+  def logged_in?
+    unless organization_logged_in?
+      redirect_to organizations_login_path
+    end
+  end
 
 end

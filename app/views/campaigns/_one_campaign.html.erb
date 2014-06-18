@@ -1,0 +1,20 @@
+<div class="all-title">
+  <p class="campaign-title"><%= campaign.name %></p>
+</div>
+
+<div class="campaign-desc">
+  <p><%= campaign.description %></p>
+</div>
+
+<div class="campaign-footer">
+
+  <div class="all progress">
+    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%=campaign.percentage_goal_complete%>%">
+    </div>
+  </div>
+
+  <div class="pledge-btn">
+    <%= link_to "PLEDGE", new_campaign_pledge_path(campaign), class: "btn btn-primary" %>
+  </div>
+
+</div>

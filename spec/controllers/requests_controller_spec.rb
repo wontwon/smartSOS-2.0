@@ -1,6 +1,11 @@
 require 'spec_helper'
 
 describe RequestsController do
+  before :each do
+    organization = create :organization
+    session[:organization_id] = organization.id
+  end
+
   # let(:request) { create :request }
   let!(:item) {create :item }
   let!(:campaign) { create :campaign }
