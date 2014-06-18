@@ -1,5 +1,11 @@
 require 'spec_helper'
 
 describe Organization do
-  skip "add some examples to (or delete) #{__FILE__}"
+
+  context 'have many campaigns' do
+  	let(:organization){create(:organization)}
+  	it { should have_many :campaigns }
+  end
+
 end
+
