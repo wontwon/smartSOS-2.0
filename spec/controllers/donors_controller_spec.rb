@@ -24,12 +24,6 @@ describe DonorsController do
 			end
 		end
 
-			it "redirect to donors#show" do 
-				post :create, donor: attributes_for(:donor)
-				expect(response).to redirect_to donor_path(assigns[:donor])
-			end
-
-
 		context "with invalid attributes" do 
 			it "does not save the new donor in the database" do 
 				expect {
