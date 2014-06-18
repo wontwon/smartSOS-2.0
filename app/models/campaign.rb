@@ -10,14 +10,14 @@ class Campaign < ActiveRecord::Base
   def total_requests_price
     requests = self.requests
     requests.inject(0) do | total, request |
-      total + request.quantity * request.requested_item.price_dollars
+      total + request.quantity * request.item.price_dollars
     end.round(2)
   end
 
   def total_pledges_price
     pledges = self.pledges
     pledges.inject(0) do | total, pledge |
-      total + pledge.quantity * pledge.pledged_item.price_dollars
+      total + pledge.quantity * pledge.request.item.price_dollars
     end.round(2)
   end
 
