@@ -1,5 +1,16 @@
 require 'spec_helper'
 
 describe Pledge do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "it should belong to donor" do
+    it { should belong_to(:donor) }
+  end
+
+  context "it should belong to campaign" do
+    it { should belong_to(:campaign) }
+  end
+
+  context "it should belong to item" do
+    it { should belong_to(:pledged_item) }
+  end
+
 end
