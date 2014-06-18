@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if donor.authenticate(params[:password])
         session[:donor_id] = donor.id
         # need campaign info from session
-        redirect_to campaign_path(session[:campaign])
+        redirect_to campaign_path(session[:campaign_id])
       else
         flash.now.alert = 'Invalid Password'
         render 'donors_login'
