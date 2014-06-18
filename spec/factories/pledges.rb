@@ -1,8 +1,7 @@
 FactoryGirl.define do
   factory :pledge do
+    association :request
     association :donor
-    association :campaign
-    association :item
     quantity { rand(10) }
   end
 end

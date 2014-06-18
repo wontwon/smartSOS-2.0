@@ -1,0 +1,44 @@
+<div class = "organization-form">
+
+  <%= form_for(@organization) do |f| %>
+
+    <%= f.label :name %><br />
+    <%= f.text_field :name, class: 'form-control', placeholder: "Example Organization" %><br>
+
+    <%= f.label :description %><br />
+    <%= f.text_field :description, class: 'form-control', placeholder: "Tell us a little bit about yourselves..." %><br>
+
+    <%= f.label :street, "Address" %><br />
+    <%= f.text_field :street, class: 'form-control', placeholder: "111 Honeybee Lane" %><br>
+
+    <%= f.label :city %><br />
+    <%= f.text_field :city, class: 'form-control', placeholder: "Colorado Springs" %><br>
+
+    <%= f.label :state %><br />
+    <%= f.text_field :state, class: 'form-control', placeholder: "Colorado" %><br>
+
+    <%= f.label :zipcode, "Zip" %><br />
+    <%= f.text_field :zipcode, class: 'form-control', placeholder: "72634" %><br>
+
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone, class: 'form-control', placeholder: "404-789-1234" %><br>
+
+    <%= f.label :email %><br />
+    <%= f.text_field :email, class: 'form-control', placeholder: "your.email@email.com" %><br>
+
+    <%= f.label :password %><br />
+    <%= f.password_field :password, class: 'form-control', placeholder: "Password" %><br>
+
+    <%= f.label :password_confirmation, "Password Confirmation" %><br />
+    <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Confirm Password" %><br>
+
+    <%= f.label :url, "Website URL" %><br />
+    <%= f.text_field :url, class: 'form-control', placeholder: "www.myorganization.org" %><br>
+
+    <div class="text-center">
+      <%= f.submit "Register Organization", class:'btn btn-info btn-sm text-center'%>
+    </div>
+
+  <% end %>
+
+</div>
