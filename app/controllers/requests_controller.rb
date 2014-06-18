@@ -15,16 +15,17 @@ before_action :set_campaign, only: [:edit, :new]
       redirect_to  new_campaign_request_path(params[:campaign_id])
     else
       flash[:alert] = "#{@request.errors.full_messages}"
-      redirect_to  make_requests_path(@campaign.organization, @campaign)
+      redirect_to  new_campaign_request_path(params[:campaign_id])
     end
   end
 
   def edit
-    @requests = @campaign.requests
+    @request = Request.find(params[:id])
   end
 
   def update
-    if @request.update(request_params)
+    @request = Request.find(params[:id])
+    if @request.update_attributes(request_params)
       render :edit
     else
       flash[:alert] = @request.errors.fulL_messages
