@@ -1,5 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update]
+  before_action :logged_in?, only: [:show, :edit, :update]
 
   def show
     # check if current organization if equal to @organization
@@ -42,6 +43,16 @@ class OrganizationsController < ApplicationController
     @organization = Organization.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash.now.alert = "The Organization you were looking for could not be found."
+  end
+
+  def logged_in?
+    if organization_logged_in?
+      unless current_organization.id == params[:id].to_i
+        redirect_to organization_path(current_organization.id)
+      end
+    else
+      redirect_to organizations_login_path
+    end
   end
 
 end

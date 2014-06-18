@@ -8,3 +8,4 @@ describe Organization do
   end
 
 end
+
