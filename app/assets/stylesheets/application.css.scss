@@ -10,24 +10,11 @@
 
 body {
 	background-image: url('./whitey.png');
+	padding: 0px;
 }
 
 li {
 	list-style-type: none;
-}
-
-#top-home {
-	postion: fixed;
-	top: 0;
-	height: 50px;
-	width: 100%;
-}
-
-#top-home a img {
-	position: absolute;
-	top: 12px;
-	right: 400px;
-	height: 40px;
 }
 
 .alert-danger {
