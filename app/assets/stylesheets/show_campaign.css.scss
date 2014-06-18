@@ -1,0 +1,98 @@
+.btn.btn-info.btn-xs{
+  margin-top: 4px;
+}
+
+.item-div{
+  height: 115px;
+  width: 100%;
+  padding: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
+  background-color: #3498DB;
+
+}
+
+.col-md-3{
+  padding: 5px;
+}
+
+.item-img{
+  float: left;
+  display: inline-block;
+  height: auto;
+  width: 50px;
+}
+
+.item-desc{
+  float: left;
+  text-size: 12px;
+  height: 40px;
+  width: 210px;
+  float: left;
+}
+
+
+.item-desc p{
+  font-size: 12px;
+  color: white;
+}
+
+.item-footer{
+  clear: both;
+  width: auto;
+  margin-top: 5px;
+  height: 60px;
+  padding-top: 5px;
+}
+
+.item-price{
+  float: left;
+  height: 57px;
+  width: 33%;
+  text-align: center;
+  border-right: 1px solid white;
+}
+
+.item-price p:nth-child(2){
+  font-size: 20px;
+  color: white;
+}
+
+.item-qty{
+  float: left;
+  height: 57px;
+  width: 33%;
+  text-align: center;
+  border-right: 1px solid white
+}
+
+.item-qty p:nth-child(2){
+  font-size: 20px;
+  color: white;
+}
+
+.item-plg{
+  padding-top: 5px;
+  float: left;
+  height: auto;
+  width: 33%;
+  text-align: center;
+}
+
+.pledge-name{
+  color: white;
+}
+
+
+.pledge-qty{
+  height: 40px;
+  width: 40px;
+  float: right;
+  color: white;
+  font-size: 25px;
+  text-weight: italic;
+  text-align: center;
+  border-radius: 20px;
+  background-color: gray;
+}
+
