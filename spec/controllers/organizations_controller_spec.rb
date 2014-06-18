@@ -36,6 +36,9 @@ describe OrganizationsController do
 
   describe 'GET #edit' do
     it 'assigns the requested organization to @organization' do
+      organization = create(:organization)
+      get :edit, id: organization
+      expect(assigns(:organization)).to eq organization
     end
   end
 
