@@ -16,9 +16,12 @@ class CampaignsController < ApplicationController
   end
 
   def create
-    campaign = Campaign.new(campaign_params)
+    campaign = Campaign.new(organization_id: session[:organization_id] ,
+                            name: campaign_params[:name],
+                            description: campaign_params[:description])
+
     if campaign.save
-      redirect_to campaign_path(campaign)
+      redirect_to organization_path(session[:organization_id])
     else
       flash[:alert] = "Problem creating new campaign."
       render 'new'
@@ -42,7 +45,7 @@ class CampaignsController < ApplicationController
   private
 
   def campaign_params
-    params.require(:campaign).permit(:organization_id, :name, :description, :start_date, :end_date)
+    params.require(:campaign).permit(:name, :description, :end_date)
   end
 
   def set_campaign
