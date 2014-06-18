@@ -6,11 +6,6 @@ describe Pledge do
   end
 
   context "it should belong to campaign" do
-    it { should belong_to(:campaign) }
+    it { should belong_to(:request) }
   end
-
-  context "it should belong to item" do
-    it { should belong_to(:pledged_item) }
-  end
-
 end
