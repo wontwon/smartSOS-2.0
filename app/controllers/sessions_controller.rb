@@ -23,10 +23,7 @@ class SessionsController < ApplicationController
 
   def organizations_create
     if organization = Organization.find_by_email(params[:email])
-      puts "[LOG] Organization found"
       if organization.authenticate(params[:password])
-        puts "[LOG] authenticated"
-        p organization
         session[:organization_id] = organization.id
         redirect_to organization_path(organization)
       else
