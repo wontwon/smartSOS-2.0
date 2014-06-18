@@ -17,6 +17,10 @@ li {
 	list-style-type: none;
 }
 
+div { 
+	border: 1px solid red;
+}
+
 .alert-danger {
 	background: none;
 	border: none;
@@ -32,10 +36,14 @@ li {
 	right: 20%;
 }
 
+#home{
+	height: 50px;
+}
+
 #home img {
-	position: absolute;
-	top: 15%;
-	height: 7%;
-	right: 10%;
+	position: relative;
+	height: 50px;
+	width: 50px;
+	float: right;
 }
 
