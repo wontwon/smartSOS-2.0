@@ -1,6 +1,5 @@
 require 'spec_helper'
 
-
 describe Campaign do
 	context "it should belong to organization" do
 		it { should belong_to(:organization) }
