@@ -48,10 +48,10 @@ class OrganizationsController < ApplicationController
   def logged_in?
     if organization_logged_in?
       unless current_organization.id == params[:id]
-        redirect_to organization_path(params[:id])
+        redirect_to organization_path(current_organization.id)
       end
     else
-      redirect_to organization_login_path
+      redirect_to organizations_login_path
     end
   end
 
