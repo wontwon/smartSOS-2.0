@@ -1,4 +1,13 @@
 class PledgesController < ApplicationController
+    before_action :logged_in?
+
+  def new
+      # this is the campaign show page for donors where they can submit pledges
+      @campaign = Campaign.find(params[:campaign_id])
+      session[:campaign_id] = params[:campaign_id]
+      @pledges = @campaign.pledges.where(donor_id: current_donor)
+      @requests = @campaign.requests
+  end
 
   def create
     # request = Request.find(params[:request_id])
@@ -28,10 +37,16 @@ class PledgesController < ApplicationController
     #   end
   end
 
-
   private
 
   def pledge_params
     params.require(:pledge).permit(:quantity, :request_id, :item_id)
   end
+
+  def logged_in?
+    unless donor_logged_in?
+        redirect_to donors_login_path
+    end
+  end
+
 end
