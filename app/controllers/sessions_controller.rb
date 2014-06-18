@@ -7,7 +7,6 @@ class SessionsController < ApplicationController
     if donor = Donor.find_by_email(params[:email])
       if donor.authenticate(params[:password])
         session[:donor_id] = donor.id
-        # need campaign info from session
         redirect_to new_campaign_pledge_path(session[:campaign_id])
       else
         flash.now.alert = 'Invalid Password'
@@ -24,7 +23,10 @@ class SessionsController < ApplicationController
 
   def organizations_create
     if organization = Organization.find_by_email(params[:email])
+      puts "[LOG] Organization found"
       if organization.authenticate(params[:password])
+        puts "[LOG] authenticated"
+        p organization
         session[:organization_id] = organization.id
         redirect_to organization_path(organization)
       else
@@ -32,6 +34,7 @@ class SessionsController < ApplicationController
         render 'organizations_login'
       end
     else
+      puts "[LOG] Organization NOT found"
       flash.now.alert = 'Invalid Organization Email'
       render 'organizations_login'
     end
