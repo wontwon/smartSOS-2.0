@@ -1,10 +1,10 @@
 class PledgesController < ApplicationController
+    before_action :logged_in?
 
   def new
-    if donor_logged_in?
+      @campaign = Campaign.find(params[:campaign_id])
       @pledges = @campaign.pledges.where(donor_id: current_donor)
       @requests = @campaign.requests
-    end
   end
 
   def create
@@ -40,4 +40,11 @@ class PledgesController < ApplicationController
   def pledge_params
     params.require(:pledge).permit(:quantity, :request_id, :item_id)
   end
+
+  def logged_in?
+    unless donor_logged_in?
+        redirect_to donors_login_path
+    end
+  end
+
 end
