@@ -21,6 +21,7 @@ class CampaignsController < ApplicationController
                             description: campaign_params[:description])
 
     if campaign.save
+      flash[:success] = "Your campaign has been created."
       redirect_to organization_path(session[:organization_id])
     else
       flash[:alert] = "Problem creating new campaign."
