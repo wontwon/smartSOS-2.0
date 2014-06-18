@@ -11,8 +11,12 @@ describe SessionsController do
 
   describe 'POST #donors_create' do
     context 'with VALID login' do
+      it 'saves the donor id to session[:donor_id]' do
+      end
     end
     context 'with INVALID login' do
+      it 'does NOT save the donor id to session[:donor_id]' do
+      end
     end
   end
 
@@ -24,9 +28,23 @@ describe SessionsController do
   end
 
   describe 'POST #organizations_create' do
+    context 'with VALID login' do
+      it 'saves the organization id to session[:organization_id]' do
+      end
+    end
+    context 'with INVALID login' do
+      it 'does NOT save the organization id to session[:organization_id]' do
+      end
+    end
   end
 
   describe 'GET #logout' do
+    it 'resets the session' do
+    end
+
+    it 'redirects to the homepage' do
+      # expect(response).to redirect_to root_path
+    end
   end
 
 end
