@@ -4,7 +4,6 @@ class PledgesController < ApplicationController
   def new
       # this is the campaign show page for donors where they can submit pledges
       @campaign = Campaign.find(params[:campaign_id])
-      # session[:campaign_id] = params[:campaign_id]
       @pledges = @campaign.pledges.where(donor_id: current_donor)
       @requests = @campaign.requests
   end
@@ -35,6 +34,8 @@ class PledgesController < ApplicationController
     #     flash[:error] = pledge.errors_full_messages
     #     redirect_to campaign_path(params[:campaign_id])
     #   end
+    flash[:alert] = "Thank you for your donation."
+    redirect_to new_campaign_pledge_path(params[:campaign_id])
   end
 
   private

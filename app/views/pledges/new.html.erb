@@ -34,20 +34,20 @@
 
 
       <div class="item-div">
-       <%= form_tag("/organizations/#{@organization.id}/campaigns/#{@campaign.id}/create_pledges", method: 'post') do %>
+       <%= form_tag("/campaigns/#{@campaign.id}/pledges", method: 'post') do %>
 
        <div class="item-img">
-        <img src=" <%= request.requested_item.img_url %>" height="42" width="42">
+        <img src=" <%= request.item.img_url %>" height="42" width="42">
       </div>
 
       <div class="item-desc">
-        <p><%= request.requested_item.name %></p>
+        <p><%= request.item.name %></p>
       </div>
 
       <div class="item-footer">
         <div class="item-price">
           <p>Price</p>
-          <p>$<%= request.requested_item.price_dollars %></p>
+          <p>$<%= request.item.price_dollars %></p>
         </div>
 
         <div class="item-qty">
@@ -57,7 +57,7 @@
 
         <div class="item-plg">
           <%= number_field_tag "pledge[quantity]", nil, in: 1..request.quantity %>
-          <%= hidden_field_tag "pledge[item_id]", value="#{request.requested_item.id}" %>
+          <%= hidden_field_tag "pledge[item_id]", value="#{request.item.id}" %>
           <%= hidden_field_tag "pledge[request_id]", value="#{request.id}" %>
           <%= submit_tag "Pledge", class: "btn btn-info btn-xs" %>
         </div>
@@ -70,12 +70,13 @@
   </ul>
 </div>
 
-<div class="col-md-3">
+<div class="pledged-items col-md-3">
   <h2>You Pledged:</h2>
-    <% @user_campaign_pledges.each do |pledge| %>
-    <div class="item-div">
+  <div class="pledge-list">
+    <% @pledges.each do |pledge| %>
+    <div class="pledgeitem-div">
       <div class="pledge-name">
-      <%= pledge.pledged_item.name %>
+      <%= pledge.item.name %>
       </div>
 
       <div class="pledge-qty">
@@ -83,6 +84,7 @@
       </div>
     </div>
     <% end %>
+  </div>
 </div>
 
 </div>
