@@ -60,4 +60,10 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/v/3-0/docs
   config.infer_spec_type_from_file_location!
+
+  # FIX: ExampleGroup#example is deprecated and will be removed in RSpec 3.
+  config.expose_current_running_example_as :example
+
+  # FIX: INCLUDE factory girl methods in testing suite
+  config.include FactoryGirl::Syntax::Methods
 end
