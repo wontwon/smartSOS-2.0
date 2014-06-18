@@ -36,6 +36,7 @@ class CampaignsController < ApplicationController
 
   def update
     if @campaign.update(campaign_params)
+      flash[:notice] = "Campaign updated successfully"
       redirect_to campaign_path(@campaign)
     else
       flash[:error] = "#{@campaign.errors.full_messages}"

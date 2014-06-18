@@ -12,7 +12,7 @@ before_action :logged_in?
     @request = Request.new(request_params)
 
     if @request.save
-      flash[:notice] = "Item added"
+      flash[:success] = "Item added"
       redirect_to  new_campaign_request_path(params[:campaign_id])
     else
       flash[:alert] = "#{@request.errors.full_messages}"
@@ -27,6 +27,7 @@ before_action :logged_in?
   def update
     @request = Request.find(params[:id])
     if @request.update_attributes(request_params)
+      flash[:success] = "Request updated successfully"
       render :edit
     else
       flash[:alert] = @request.errors.fulL_messages

@@ -12,8 +12,10 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
+
     if @organization.save
       session[:organization_id] = @organization.id
+      flash[:success] = "Your organization was created successfully"
       redirect_to organization_path(@organization)
     else
       flash.now.alert = "Apologies. Your Organization has not been registered."
@@ -27,6 +29,7 @@ class OrganizationsController < ApplicationController
   def update
     if @organization.update(organization_params)
       redirect_to organization_path(@organization)
+      flash[:success] = "Your organization was updated successfully"
     else
       flash[:alert] = "Aplogies. You Organization has not been updated."
       render 'edit'
