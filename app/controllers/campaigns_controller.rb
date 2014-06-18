@@ -28,7 +28,7 @@ class CampaignsController < ApplicationController
     @requests = @campaign.requests
   end
 
-  def donor_show
+  def show
     if donor_logged_in?
       @pledges = @campaign.pledges.where(donor_id: current_donor)
       @requests = @campaign.requests
