@@ -1,9 +1,14 @@
 class CampaignsController < ApplicationController
-  before_action :set_campaign, only:[:edit, :show, :update]
-  before_action :set_organization, only:[]
+  before_action :set_campaign, only: [:edit, :show, :update]
+  before_action :logged_in?, only: [:show, :new, :create, :edit, :update]
 
   def index
     @campaigns = Campaign.all
+  end
+
+  def show
+    @pledges = @campaign.pledges
+    @requests = @campaign.requests
   end
 
   def new
@@ -23,16 +28,6 @@ class CampaignsController < ApplicationController
   def edit
     @pledges = @campaign.pledges
     @requests = @campaign.requests
-  end
-
-  def show
-    if organization_logged_in?
-      @pledges = @campaign.pledges
-      @requests = @campaign.requests
-    else
-      flash[:alert] = "Please log in"
-      redirect_to organizations_login_path
-    end
   end
 
   def update
@@ -55,4 +50,12 @@ class CampaignsController < ApplicationController
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = "The Campaign you were looking for could not be found."
   end
+
+  def logged_in?
+    unless organization_logged_in?
+      flash[:alert] = "Please log in"
+      redirect_to organizations_login_path
+    end
+  end
+
 end
