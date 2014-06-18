@@ -12,6 +12,9 @@ describe SessionsController do
   describe 'POST #donors_create' do
     context 'with VALID login' do
       it 'saves the donor id to session[:donor_id]' do
+        donor = create(:donor)
+        post :donors_create, email: donor.email, password: donor.password
+        expect(session[:donor_id]).to eq donor.id
       end
     end
     context 'with INVALID login' do
@@ -43,7 +46,6 @@ describe SessionsController do
     end
 
     it 'redirects to the homepage' do
-      # expect(response).to redirect_to root_path
     end
   end
 
