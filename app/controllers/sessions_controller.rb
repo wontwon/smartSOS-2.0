@@ -1,6 +1,9 @@
 class SessionsController < ApplicationController
 
   def donors_login
+    puts '*' * 100
+    puts session[:campaign_id]
+    puts params
   end
 
   def donors_create
