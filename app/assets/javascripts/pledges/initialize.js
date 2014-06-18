@@ -1,6 +1,6 @@
 $( document ).ready(function() {
-
-  requestedItemsController = new RequestedItemsController(new RequestedItemsList);
+  requestedItemsController = new RequestedItemsController(new RequestedItemsList, new RequestedItemsView);
+  requestedItemsController.init()
 
   pledgedItemsController = new PledgedItemsController(new PledgedItemsList, new PledgedItemsView);
 

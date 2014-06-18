@@ -1,8 +1,6 @@
-function Item(price, requestQuantity, description, img, id) {
-  this.price = price;
-  this.requestQuantity = requestQuantity;
-  this.description = description;
-  this.img = img;
+function Pledge(id, name, price) {
   this.id = id;
-  this.pledgeQuantity = 0;
+  this.name = name;
+  this.price = price;
+  this.quantity = 1;
 }

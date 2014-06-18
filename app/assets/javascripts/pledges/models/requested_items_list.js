@@ -1,34 +1,29 @@
 function RequestedItemsList() {
-  this.items = [];
+  this.requests = [];
+  this.total = 0;
 }
 
 RequestedItemsList.prototype = {
-  itemArray: function() {
-    return $('.item-div');
-  },
-
-  grabItems: function() {
-    var items = this.itemArray();
-    for(var i=0; i<items.length; i++) {
-      var parsedItem = this.htmlParser(items[i]);
-      this.items.push(new Item(parsedItem.price, parsedItem.quantity, parsedItem.desc, parsedItem.img, parsedItem.id));
-      console.log(this.items);
+  populate: function(data) {
+    for(var i = 0; i < data.length; i++) {
+      this.requests.push(data[i]);
     }
+    this.updateTotal();
   },
 
-  htmlParser: function(item) {
-    parsedItemObject = {
-      img: item.children[0].children[1].children[0].src,
-      desc: item.children[0].children[2].children[0].innerHTML,
-      price: item.children[0].children[3].children[0].children[1].innerHTML,
-      quantity: item.children[0].children[3].children[1].children[1].innerHTML,
-      id: item.children[0].children[3].children[2].children[1].value
-    };
-    return parsedItemObject;
+  reduceQuantity: function(request) {
+    for(var i=0; i<this.requests.length; i++) {
+      if (request === this.requests[i]) {
+        this.requests[i].quantity--;
+      }
+    }
+    this.updateTotal();
   },
 
-  loadItems: function() {
-    this.grabItems();
+  updateTotal: function() {
+    this.total = 0;
+    for(var i=0; i<this.requests.length; i++) {
+      this.total += this.requests[i].price * this.requests[i].quantity;
+    }
   }
-
 };

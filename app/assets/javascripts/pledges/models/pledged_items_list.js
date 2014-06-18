@@ -1,18 +1,33 @@
 function PledgedItemsList() {
-  this.items = [];
+  this.pledges = [];
+  this.total = 0;
 }
 
 PledgedItemsList.prototype = {
-  itemExists: function(item_id) {
-    for(var i=0; i < this.items.length; i++) {
-      if (item_id === this.items[i].id) {
-        return this.items[i];
+  addPledge: function(newPledge) {
+    var existingPledge = this.pledgeExists(newPledge);
+    if (existingPledge) {
+      existingPledge.quantity++;
+    }
+    else {
+      this.pledges.push(new Pledge(newPledge.id, newPledge.name, newPledge.price));
+    }
+    this.updateTotal();
+  },
+
+  pledgeExists: function(newPledge) {
+    for(var i=0; i<this.pledges.length; i++) {
+      if (newPledge.id === this.pledges[i].id) {
+        return this.pledges[i];
       }
     }
     return false;
   },
 
-  // updateItemQuantity: function(item_id) {
-
-  // }
+  updateTotal: function() {
+    this.total = 0;
+    for(var i=0; i<this.pledges.length; i++) {
+      this.total += this.pledges[i].price * this.pledges[i].quantity;
+    }
+  }
 }

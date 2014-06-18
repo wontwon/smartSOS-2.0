@@ -8,13 +8,13 @@ class PledgesController < ApplicationController
       @requests = @campaign.requests
 
 
-      @front_end_model = @requests.each_with_object [] do |request, front_end_model|
-        front_end_model << {name: request.item.name,
+      @front_end_request_model = @requests.each_with_object [] do |request, front_end_model|
+        front_end_model << {id: request.id,
+                            name: request.item.name,
                             quantity: request.quantity,
-                            img: request.item.img_url,
-                            price: request.item.price}
+                            price: request.item.price_dollars}
       end
-      @models_json = @front_end_model.to_json.html_safe
+      @request_model_data_json = @front_end_request_model.to_json.html_safe
   end
 
   def create

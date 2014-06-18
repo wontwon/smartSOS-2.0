@@ -4,17 +4,23 @@ var ApplicationController = function(requestedItemsController, pledgedItemsContr
 };
 
 ApplicationController.prototype = {
-
   listenForPledge: function() {
     var self = this;
-    $('.item-div').on('click', function(e) {
-      e.preventDefault();
-      self.pledgedItemsController.addItem(this);
-      self.pledgedItemsController.pledgedItemsView.render(self.pledgedItemsController.pledgedItemsList.items);
-
-      self.requestedItemsController.updateQuantity(this);
-       // this.requestedItemsView.render(this,request)
+    $(document).on('click', '.requested-item', function(event) {
+      self.transferItem($(this).data('id'));
+      self.pledgedItemsController.pledgedItemsView.render(self.pledgedItemsController.pledgedItemsList);
+      self.requestedItemsController.requestedItemsView.render(self.requestedItemsController.requestedItemsList);
     });
-  }
+  },
 
+  transferItem: function(item_id) {
+    for(var i=0; i<requestModelData.length; i++) {
+      if (requestModelData[i].id === item_id) {
+        if (requestModelData[i].quantity > 0) {
+          this.requestedItemsController.requestedItemsList.reduceQuantity(requestModelData[i]);
+          this.pledgedItemsController.pledgedItemsList.addPledge(requestModelData[i]);
+        }
+      }
+    }
+  }
 }
