@@ -4,6 +4,9 @@ describe OrganizationsController do
 
   describe 'GET #show' do
     it 'assigns the requested organization to @organization' do
+      organization = create(:organization)
+      get :show, id: organization
+      expect(assigns(:organization)).to eq organization
     end
   end
 
