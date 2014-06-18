@@ -20,10 +20,16 @@ describe OrganizationsController do
   describe 'POST #create' do
     context 'with VALID attributes' do
       it 'saves the new organization in the database' do
+        expect {
+          post :create, organization: attributes_for(:organization)
+        }.to change(Organization, :count).by(1)
       end
     end
     context 'with INVALID attributes' do
       it 'does NOT save the new organization in the database' do
+        expect {
+          post :create, organization: attributes_for(:invalid_organization)
+        }.to change(Organization, :count).by(0)
       end
     end
   end
