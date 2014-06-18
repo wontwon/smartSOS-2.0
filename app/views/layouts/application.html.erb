@@ -14,7 +14,17 @@
 </head>
 <body>
 
+<% unless root_path == true %>
+	<div id="home">
+		<a href="<%=root_path%>"><img src="http://www.clipartbest.com/cliparts/dTr/KRy/dTrKRy8T9.png"></a>
+	</div>
+<% end %>
+
 <%= yield %>
+
+<div id="footer">
+	<img src="http://familylearningsolutions.com/wp-content/uploads/2012/02/kids-holding-hands-clipart.png">
+</div>
 
 </body>
 </html>

@@ -47,19 +47,22 @@ h1 {
 
 #HOW-IT-WORKS {
 	color: white;
-	
-	width: 80%;
+	text-align: center;
+	width: 100%;
 }
 
 #OUR-STORY {
 	color: white;
-	margin: 500px;
-	padding: 40px;
-	width: 80%;
+	text-align: center;
+	width: 100%;
 }
 
 a {
-	padding: 40px;
+	padding: 60px;
+}
+
+#nav {
+	// visibility: hidden;
 }
 
 #nav a {
@@ -68,7 +71,7 @@ a {
 
 #header #nav a {
 	color: #3a4046;
-	font-size: 11px;
+	font-size: 12px;
 }
 
 #header #nav a:hover {
@@ -92,13 +95,19 @@ a {
 	margin-left: 30px;
 	}
 
+#nav h1 {
+	color: #f16162;
+}
+
 #quote {
 	padding-left: 45px;
 	padding-top: 100px;
-	padding-bottom: 20%;
+	padding-bottom: 21%;
 	width: 80%;
 }
 
 .column{
+	color: white;
 	padding-left: 12%;
 }
+
