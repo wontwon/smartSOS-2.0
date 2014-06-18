@@ -2,13 +2,29 @@
 <html>
 <head>
   <title>Smartsos</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
 
+<% unless root_path == true %>
+	<div id="home">
+		<a href="<%=root_path%>"><img src="http://www.clipartbest.com/cliparts/dTr/KRy/dTrKRy8T9.png"></a>
+	</div>
+<% end %>
+
 <%= yield %>
+
+<div id="footer">
+	<img src="http://familylearningsolutions.com/wp-content/uploads/2012/02/kids-holding-hands-clipart.png">
+</div>
 
 </body>
 </html>

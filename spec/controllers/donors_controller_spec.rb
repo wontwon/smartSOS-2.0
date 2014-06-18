@@ -24,6 +24,10 @@ describe DonorsController do
 			}.to change(Donor, :count).by(1)
 			end
 
+<<<<<<< HEAD
+		context "with invalid attributes" do 
+			it "does not save the new donor in the database" do 
+=======
 			it 'saves the donor id to session[:donor_id]' do
 				session[:campaign_id] = campaign.id
         post :create, donor: attributes_for(:donor)
@@ -40,6 +44,7 @@ describe DonorsController do
 
 		context "with invalid attributes" do
 			it "does not save the new donor in the database" do
+>>>>>>> development
 				expect {
 					post :create, donor: attributes_for(:invalid_donor)
 				}.to_not change(Donor, :count)
