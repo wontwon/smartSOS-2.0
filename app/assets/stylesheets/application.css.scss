@@ -1,0 +1,43 @@
+@import "bootstrap";
+@import "donor_form";
+@import "nav_bar";
+@import "all_campaigns";
+@import "organization_form";
+@import "dashboard";
+@import "homepage";
+@import "all_organizations";
+@import "show_campaign";
+
+body {
+	background-image: url('./whitey.png');
+}
+
+li {
+	list-style-type: none;
+}
+
+div {
+	border: 1px solid red;
+}
+
+#top-home {
+	postion: fixed;
+	top: 0;
+	height: 50px;
+	width: 100%;
+}
+
+#top-home a img {
+	position: absolute;
+	top: 12px;
+	right: 400px;
+	height: 40px;
+}
+
+.alert-danger {
+	background: none;
+	border: none;
+	position: absolute;
+	top: 3%;
+	padding: 0;
+}
