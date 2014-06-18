@@ -29,11 +29,15 @@ div {
 	padding: 0;
 }
 
+#footer {
+	height: 20%;
+}
+
 #footer img {
-	position: absolute;
+	position: relative;
 	bottom: 0px;
 	height: 20%;
-	right: 20%;
+	float:right;
 }
 
 #home{

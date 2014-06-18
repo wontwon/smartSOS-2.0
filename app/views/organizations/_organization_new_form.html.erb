@@ -11,14 +11,24 @@
     <%= f.label :street, "Address" %><br />
     <%= f.text_field :street, class: 'form-control', placeholder: "111 Honeybee Lane" %><br>
 
-    <%= f.label :city %><br />
-    <%= f.text_field :city, class: 'form-control', placeholder: "Colorado Springs" %><br>
+    <div class="row">
+        <div class="col-xs-6">
+            <%= f.label :city %><br />
+            <%= f.text_field :city, class: 'form-control', placeholder: "Colorado Springs" %><br>
+        </div>
 
-    <%= f.label :state %><br />
-    <%= f.text_field :state, class: 'form-control', placeholder: "Colorado" %><br>
+        <div class="col-xs-2">
+        <%= f.label :state %><br />
+        <%= f.text_field :state, class: 'form-control', placeholder: "CO" %><br>
+        </div>
 
-    <%= f.label :zipcode, "Zip" %><br />
-    <%= f.text_field :zipcode, class: 'form-control', placeholder: "72634" %><br>
+        <div class="col-xs-4">
+            <%= f.label :zipcode, "Zip" %><br />
+            <%= f.text_field :zipcode, class: 'form-control', placeholder: "72634" %><br>
+        </div>
+    
+
+    </div>
 
     <%= f.label :phone %><br />
     <%= f.text_field :phone, class: 'form-control', placeholder: "404-789-1234" %><br>
