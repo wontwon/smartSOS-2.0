@@ -5,18 +5,16 @@ describe RequestsController do
   let!(:item) {create :item }
   let!(:campaign) { create :campaign }
 
-  describe 'GET #make_requests' do
+  describe 'GET #new' do
     it "assigns to @items all items in db" do
       item2 = create(:item)
-      get :make_requests, organization_id: campaign.organization, campaign_id: campaign
+      get :new, campaign_id: campaign
       expect(assigns(:items)).to eq [item, item2]
     end
 
-    it "assigns to @total_request_price the total price of the campaign's requests"
-
-    it "renders make_requests page" do
-      get :make_requests, organization_id: campaign.organization, campaign_id: campaign
-      expect(response).to render_template :make_requests
+    it "renders new page" do
+      get :new, campaign_id: campaign
+      expect(response).to render_template :new
     end
   end
 
@@ -24,7 +22,7 @@ describe RequestsController do
     context 'with non-zero quantity' do
       it 'saves the new request to the database' do
         expect {
-          post :create, organization_id: campaign.organization.id, campaign_id: campaign.id,
+          post :create, campaign_id: campaign.id,
             request: {campaign_id: campaign.id, item_id: item.id, quantity: 10}
         }.to change(Request, :count).by(1)
       end
