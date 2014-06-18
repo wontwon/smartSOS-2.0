@@ -6,8 +6,4 @@ describe Request do
     it { should belong_to(:campaign) }
   end
 
-  context "it belongs to requested item" do
-    it { should belong_to(:requested_item) }
-  end
-
 end
