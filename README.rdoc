@@ -1,19 +1,28 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About SmartSOS
 
-Things you may want to cover:
+### SmartSOS is a platform that connects non-profit organizations and donors to get critical supplies to where they are needed. We give organizations the flexibility to specify the items they need and adjust to fluctuating needs, while giving donors instant gratification by allowing them to choose which items they donate. The result is reduced resource misallocation and complete transparency between donors and organizations. 
 
-* Ruby version
+## Team Members
 
-* System dependencies
+- Sahan Pitigala
+- Tuan Duong
+- Payam Pakmanesh
+- Alex Frankel
+- Pei Xiong Liu
 
-* Configuration
 
-* Database creation
 
-* Database initialization
+### This app has some gem depedencies to run locally. Please refer to the gem file and bundle install after cloning.
+
+```
+ruby version 2.0
+```
+
+#### The app requires amazon API keys to handle certain functions.
+
+
 
 * How to run the test suite
 

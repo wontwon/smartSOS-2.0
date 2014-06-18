@@ -12,7 +12,6 @@ class DonorsController < ApplicationController
 			session[:donor_id] = @donor.id
 			flash[:success] = "Your account was created successfully"
 			 redirect_to new_campaign_pledge_path(session[:campaign_id])
-			}
 		else
 			flash.now.alert = "Apologies. Your Registration was not recorded."
 			render 'new'
