@@ -7,6 +7,11 @@ class Campaign < ActiveRecord::Base
   validates :description, presence: true
   validates_length_of :description, maximum: 500
 
+  def donors
+    pledges = self.pledges
+    pledges.map{ |pledge| pledge.donor }
+  end
+
   def total_requests_price
     requests = self.requests
     requests.inject(0) do | total, request |
