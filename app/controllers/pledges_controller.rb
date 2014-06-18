@@ -2,7 +2,9 @@ class PledgesController < ApplicationController
     before_action :logged_in?
 
   def new
+      # this is the campaign show page for donors where they can submit pledges
       @campaign = Campaign.find(params[:campaign_id])
+      session[:campaign_id] = params[:campaign_id]
       @pledges = @campaign.pledges.where(donor_id: current_donor)
       @requests = @campaign.requests
   end

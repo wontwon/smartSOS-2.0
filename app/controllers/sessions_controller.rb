@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       if donor.authenticate(params[:password])
         session[:donor_id] = donor.id
         # need campaign info from session
-        redirect_to campaign_path(session[:campaign_id])
+        redirect_to new_campaign_pledge_path(session[:campaign_id])
       else
         flash.now.alert = 'Invalid Password'
         render 'donors_login'
@@ -20,10 +20,6 @@ class SessionsController < ApplicationController
   end
 
   def organizations_login
-    # is this check the best place for this?
-    if session[:organization_id]
-      redirect_to organization_path(Organization.find(session[:organization_id]))
-    end
   end
 
   def organizations_create
