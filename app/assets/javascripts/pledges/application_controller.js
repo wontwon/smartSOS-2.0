@@ -1,6 +1,6 @@
-var ApplicationController = function(requestedItemsList, pledgedItemsList) {
-    this.requestedItemsList = requestedItemsList;
-    this.pledgedItemsList = pledgedItemsList;
+var ApplicationController = function(requestedItemsController, pledgedItemsController) {
+    this.requestedItemsController = requestedItemsController;
+    this.pledgedItemsController = pledgedItemsController;
 };
 
 ApplicationController.prototype = {
@@ -8,7 +8,12 @@ ApplicationController.prototype = {
   listenForPledge: function() {
     var self = this;
     $('.item-div').on('click', function(e) {
-      self.pledgedItemsList.addItem(this);
+      e.preventDefault();
+      self.pledgedItemsController.addItem(this);
+      self.pledgedItemsController.pledgedItemsView.render(self.pledgedItemsController.pledgedItemsList.items);
+
+      self.requestedItemsController.updateQuantity(this);
+       // this.requestedItemsView.render(this,request)
     });
   }
 

@@ -6,6 +6,15 @@ class PledgesController < ApplicationController
       @campaign = Campaign.find(params[:campaign_id])
       @pledges = @campaign.pledges.where(donor_id: current_donor)
       @requests = @campaign.requests
+
+
+      @front_end_model = @requests.each_with_object [] do |request, front_end_model|
+        front_end_model << {name: request.item.name,
+                            quantity: request.quantity,
+                            img: request.item.img_url,
+                            price: request.item.price}
+      end
+      @models_json = @front_end_model.to_json.html_safe
   end
 
   def create

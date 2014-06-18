@@ -7,16 +7,15 @@ PledgedItemsController.prototype = {
   addItem: function(item) {
     var parsedItem = this.htmlParser(item);
     var newItem = new Item(parsedItem.price, parsedItem.quantity, parsedItem.desc, parsedItem.img, parsedItem.id);
-
     var existingItem = this.pledgedItemsList.itemExists(newItem.id)
-    if (existingItem.id === newItem.id) {
-      existingItem.pledgeQuantity++;
+
+    if (existingItem.id != newItem.id) {
+      newItem.pledgeQuantity++;
+      this.pledgedItemsList.items.push(newItem);
     }
     else {
-    this.pledgedItemsList.items.push(newItem);
+      existingItem.pledgeQuantity++;
     }
-
-    this.pledgedItemsView.render(this.pledgedItemsList.items);
   },
 
   htmlParser: function(item) {

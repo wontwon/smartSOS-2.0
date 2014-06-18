@@ -4,5 +4,5 @@ function Item(price, requestQuantity, description, img, id) {
   this.description = description;
   this.img = img;
   this.id = id;
-  this.pledgeQuantity = 1;
+  this.pledgeQuantity = 0;
 }

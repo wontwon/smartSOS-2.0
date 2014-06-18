@@ -33,38 +33,34 @@
       <% if request.quantity > 0 %>
 
 
-      <div class="item-div">
-       <%= form_tag("/campaigns/#{@campaign.id}/pledges", method: 'post') do %>
+        <div class="item-div">
+          <%= form_tag("/campaigns/#{@campaign.id}/pledges", method: 'post') do %>
 
-       <div class="item-img">
-        <img src=" <%= request.item.img_url %>" height="42" width="42">
-      </div>
+          <div class="item-img">
+            <img src=" <%= request.item.img_url %>" height="42" width="42">
+          </div>
 
-      <div class="item-desc">
-        <p><%= request.item.name %></p>
-      </div>
+          <div class="item-desc">
+            <p><%= request.item.name %></p>
+          </div>
 
-      <div class="item-footer">
-        <div class="item-price">
-          <p>Price</p>
-          <p>$<%= request.item.price_dollars %></p>
+          <div class="item-footer">
+            <div class="item-price">
+              <p>Price</p>
+              <p>$<%= request.item.price_dollars %></p>
+            </div>
+
+            <div class="item-qty">
+              <p>Qty</p>
+              <p><%= request.quantity %></p>
+            </div>
+            <div class="item-plg">
+              <%= hidden_field_tag "pledge[item_id]", value="#{request.item.id}" %>
+              <%= hidden_field_tag "pledge[request_id]", value="#{request.id}" %>
+            </div>
+          </div>
         </div>
-
-        <div class="item-qty">
-          <p>Qty</p>
-          <p><%= request.quantity %></p>
-        </div>
-
-        <div class="item-plg">
-          <%= number_field_tag "pledge[quantity]", nil, in: 1..request.quantity %>
-          <%= hidden_field_tag "pledge[item_id]", value="#{request.item.id}" %>
-          <%= hidden_field_tag "pledge[request_id]", value="#{request.id}" %>
-          <%= submit_tag "Pledge", class: "btn btn-info btn-xs" %>
-        </div>
-      </div>
-
-    </div>
-    <% end %>
+      <% end %>
     <% end %>
     <% end %>
   </ul>
@@ -86,6 +82,7 @@
     <% end %>
   </div>
 </div>
+  <script type="text/javascript">var model = <%= @models_json || '""'.html_safe %></script>
 
 </div>
 </div>
