@@ -8,4 +8,4 @@ describe Pledge do
 	context "it should belong to request" do
 		it { should belong_to(:request) }
 	end
-end
+

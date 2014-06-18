@@ -1,0 +1,72 @@
+<% if session[:organization_id] %>
+<% end %>
+
+<div>
+  <h1 class="dashboard-title">Organization Dashboard</h1>
+  <%= link_to "Edit Organization", edit_organization_path(@organization), class:"edit-org" %>
+  <%= link_to "Create New Campaign", new_campaign_path, class:"new-campaign" %>
+</div>
+
+<div class="container" id="dashboard-container">
+  <div class="row">
+    <% @organization.campaigns.each do |campaign| %>
+    <div class="col-sm-6 col-md-4">
+      <div class="campaign-holder">
+
+        <div class="campaign-title">
+          <p><%= campaign.name %></p>
+        </div>
+
+        <div class="campaign-details">
+          <div class="detail-box">
+              <p>Requested</p>
+              <p class="detail-content">$<%= campaign.total_requests_price %></p>
+          </div>
+          <div class="detail-box">
+              <p>Received</p>
+              <p class="detail-content">$<%= campaign.total_pledges_price %></p>
+          </div>
+           <div class="detail-box">
+            <p>Items Requested</p>
+            <p class="detail-content"><%= campaign.total_request_quantity  %></p>
+          </div>
+          <div class="detail-box">
+            <p>Items Pledged</p>
+            <p class="detail-content"> <%= campaign.total_pledge_quantity %></p>
+          </div>
+        </div>
+
+
+        <div class="detail-footer">
+
+          <div class="progress">
+            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%=campaign.percentage_goal_complete%>%">
+            </div>
+          </div>
+
+
+
+          <% i = 0 %>
+          <% campaign.pledges.each do |pledge| %>
+          <% i = i + 1 %>
+          <form id="amazon" method="GET" action="http://www.amazon.com/gp/aws/cart/add.html" target="_blank">
+            <input type="hidden" name="AWSAccessKeyId" value=ENV["secret_access_key"] />
+            <input type="hidden" name="AssociateTag" value="Associate Tag" />
+            <input type="hidden" name="ASIN.<%="#{i}"%>" value="<%=pledge.request.item.asin%>" />
+            <input type="hidden" name="Quantity.<%="#{i}"%>" value="<%=pledge.quantity%>" />
+
+
+            <% end %>
+
+            <%= link_to "View/Edit", edit_campaign_path(campaign.id), class: "btn btn-primary", role: "button" %>
+            <!-- <a href="" class="btn btn-primary" role="button">View/Edit</a> -->
+            <% if  campaign.pledges.count > 0 %>
+              <input type="submit" name="add" class="btn btn-danger" value="Checkout" onclick="open_win()" />
+            <% end %>
+          </form>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
