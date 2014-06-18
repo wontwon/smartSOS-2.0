@@ -26,9 +26,6 @@ class PledgesController < ApplicationController
     #     flash[:error] = pledge.errors_full_messages
     #     redirect_to campaign_path(params[:campaign_id])
     #   end
-    end
-
-
   end
 
 

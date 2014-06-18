@@ -7,6 +7,7 @@ describe PledgesController do
   let!(:donor) {create :donor}
 
   describe 'GET #list_donor_pledges' do
+
     it "assigns to @pledges all of the requested donor's pledges" do
       pledge1 = Pledge.create(donor_id: donor.id, campaign_id: campaign.id, item_id: item.id, quantity: 5)
       pledge2 = Pledge.create(donor_id: donor.id, campaign_id: campaign.id, item_id: item.id, quantity: 6)
