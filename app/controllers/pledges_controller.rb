@@ -1,5 +1,12 @@
 class PledgesController < ApplicationController
 
+  def new
+    if donor_logged_in?
+      @pledges = @campaign.pledges.where(donor_id: current_donor)
+      @requests = @campaign.requests
+    end
+  end
+
   def create
     # request = Request.find(params[:request_id])
     # new_request_quantity = request.quantity - pledge_params[:quantity].to_i
@@ -27,7 +34,6 @@ class PledgesController < ApplicationController
     #     redirect_to campaign_path(params[:campaign_id])
     #   end
   end
-
 
   private
 

@@ -21,21 +21,17 @@ class CampaignsController < ApplicationController
   end
 
   def edit
-    # this page has both campaign information & requested items/pledges information
-    # Organization can edit campaign name & desc but have to click edit items to get
-    # to edit request page.
     @pledges = @campaign.pledges
     @requests = @campaign.requests
   end
 
   def show
-    if donor_logged_in?
-      @pledges = @campaign.pledges.where(donor_id: current_donor)
+    if organization_logged_in?
+      @pledges = @campaign.pledges
       @requests = @campaign.requests
     else
-      session[:campaign_id] = params[:id] #
       flash[:alert] = "Please log in"
-      redirect_to donors_login_path
+      redirect_to organizations_login_path
     end
   end
 
