@@ -12,6 +12,8 @@ describe OrganizationsController do
 
   describe 'GET #new' do
     it 'assigns a new organization to @organization' do
+      get :new
+      expect(assigns(:organization)).to be_a_new(Organization)
     end
   end
 
