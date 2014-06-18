@@ -45,10 +45,18 @@ describe OrganizationsController do
   describe 'PUT #update' do
     context 'with VALID attributes' do
       it 'changes the attributes of an organization' do
+        organization = create(:organization, name: 'exampleName1')
+        patch :update, id: organization, organization: attributes_for(:organization, name: 'exampleName2')
+        organization.reload
+        expect(organization.name).to eq('exampleName2')
       end
     end
     context 'with INVALID attributes' do
       it 'does NOT change the attributes of an organization' do
+        organization = create(:organization, name: 'exampleName1')
+        patch :update, id: organization, organization: attributes_for(:organization, name: '')
+        organization.reload
+        expect(organization.name).to eq('exampleName1')
       end
     end
   end
