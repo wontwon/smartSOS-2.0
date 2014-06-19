@@ -107,37 +107,37 @@ end
                 password_confirmation: "yolo")
 end
 
-Organization.all.each do |org|
-  puts "*" * 100
-  campaign_names = [  ["Hurricane Alex Relief", "Please help those affected by Hurricane Alex by donating today."],
-                      ["Tsunami Relief", "Please help those affected by the tsunami by donating today."] ]
-  campaign_names.each do |campaign_name|
-    puts 'campaign'
-    org.campaigns << Campaign.create(
-                      name: campaign_name[0],
-                      description: campaign_name[1],
-                      end_date: '06-25-2014')
-  end
-end
+# Organization.all.each do |org|
+#   puts "*" * 100
+#   campaign_names = [  ["Hurricane Alex Relief", "Please help those affected by Hurricane Alex by donating today."],
+#                       ["Tsunami Relief", "Please help those affected by the tsunami by donating today."] ]
+#   campaign_names.each do |campaign_name|
+#     puts 'campaign'
+#     org.campaigns << Campaign.create(
+#                       name: campaign_name[0],
+#                       description: campaign_name[1],
+#                       end_date: '06-25-2014')
+#   end
+# end
 
-Campaign.all.each do |campaign|
-  items = Item.all
-  10.times do
-    puts 'request'
-    Request.create( campaign_id: campaign.id,
-                    item_id: items.pop.id,
-                    quantity: rand(10))
-  end
+# Campaign.all.each do |campaign|
+#   items = Item.all
+#   10.times do
+#     puts 'request'
+#     Request.create( campaign_id: campaign.id,
+#                     item_id: items.pop.id,
+#                     quantity: rand(10))
+#   end
 
-  requests = Request.all
-  donors = Donor.all
-  2.times do
-    puts 'pledge'
-    Pledge.create(  donor_id: donors.pop.id,
-                    request_id: requests.pop.id,
-                    quantity: rand(10))
-  end
-end
+#   requests = Request.all
+#   donors = Donor.all
+#   2.times do
+#     puts 'pledge'
+#     Pledge.create(  donor_id: donors.pop.id,
+#                     request_id: requests.pop.id,
+#                     quantity: rand(10))
+#   end
+# end
 
 
 
