@@ -17,6 +17,8 @@ before_action :logged_in?
     if request_for_item_exists(item_id, campaign_id)
       update_existing_request(item_id, campaign_id, request_quantity)
       redirect_to new_campaign_request_path(campaign_id)
+    elsif request_params[:quanity] == 0
+      redirect_to new_campaign_request_path(campaign_id)
     else
       save_new_request
       redirect_to new_campaign_request_path(campaign_id)
