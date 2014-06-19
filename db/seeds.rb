@@ -12,12 +12,12 @@ reset_database!
 
 config_hash = YAML::load_file('config/secrets.yml')
 
-organization_names = ["Red Cross", "Children's Disaster Services"]
+organizations = [["Red Cross", "redcross@redcross.org"], ["UNICEF", "unicef@unicef.org"]]
 
 # general_search_items = %w[soap toothbrush toothpaste tampons] #dog_food water canned_food batteries first_aid_kit baby_formula diapers dehydrated_food]
 asins = %w[ B0069FTP0G B001949TKS B0039PV1QK B005FEGYJC B000GCRWCG B005VYRBRA B001YJHEDW
             B002GYVFOI B004E3EIEI B000KKB2OS B001U6MJCK B00363WZY2 B00363X1M2 B001HT720O
-            B00IKLHDLU B004VLKLJE B00BG2BBSG B005IRWWZ6 B00008W2LC B00BLZ2312]
+            B00IKLHDLU B004VLKLJE B00BG2BBSG B005IRWWZ6 B00008W2LC B00BLZ2312 ]
 
 # general_search_items.each do |item|
 asins.each do |asin|
@@ -142,15 +142,15 @@ asins.each do |asin|
   # end
 end
 
-organization_names.each do |org|
+organizations.each do |org|
   puts 'org'
   Organization.create(
-                        name: org,
+                        name: org[0],
                         street: Faker::Address.street_address,
                         city: Faker::Address.city,
                         state: Faker::Address.state,
                         zipcode: Faker::Address.zip_code,
-                        email: Faker::Internet.email,
+                        email: org[1],
                         password: "yolo",
                         password_confirmation: "yolo",
                         phone: Faker::PhoneNumber.phone_number,
@@ -167,31 +167,31 @@ end
                 password_confirmation: "yolo")
 end
 
-Organization.all.each do |org|
-  2.times do
-    puts 'campaign'
-    org.campaigns << Campaign.create(
-                      name: Faker::Lorem.sentence,
-                      description: Faker::Lorem.paragraph(sentence_count=3),
-                      end_date: '02-10-2014')
-  end
-end
+# Organization.all.each do |org|
+#   2.times do
+#     puts 'campaign'
+#     org.campaigns << Campaign.create(
+#                       name: Faker::Lorem.sentence,
+#                       description: Faker::Lorem.paragraph(sentence_count=3),
+#                       end_date: '02-10-2014')
+#   end
+# end
 
-Campaign.all.each do |campaign|
-  10.times do
-    puts 'request'
-    Request.create( campaign_id: campaign.id,
-                    item_id: Item.all.sample.id,
-                    quantity: rand(10))
-  end
+# Campaign.all.each do |campaign|
+#   10.times do
+#     puts 'request'
+#     Request.create( campaign_id: campaign.id,
+#                     item_id: Item.all.sample.id,
+#                     quantity: rand(10))
+#   end
 
-  10.times do
-    puts 'pledge'
-    Pledge.create(  donor_id: Donor.all.sample.id,
-                    request_id: Request.all.sample.id,
-                    quantity: rand(10))
-  end
-end
+#   10.times do
+#     puts 'pledge'
+#     Pledge.create(  donor_id: Donor.all.sample.id,
+#                     request_id: Request.all.sample.id,
+#                     quantity: rand(10))
+#   end
+# end
 
 
 
