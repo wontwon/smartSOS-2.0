@@ -1,4 +1,5 @@
-$lightgray: #cccccc;
+@import "application_colorway";
+@import "dashboard";
 
 .title {
 	 font-family: 'Quicksand', sans-serif;
@@ -19,6 +20,12 @@ $lightgray: #cccccc;
 	background-color: $lightgray;
 }
 
+.step-box{
+	width: auto;
+	height: 150px;
+	text-align: center;
+}
+
 .all {
 	position: relative;
 	left: 2px;
@@ -36,10 +43,6 @@ $lightgray: #cccccc;
 	font-size: 20px;
 }
 
-.pledge-btn{
-	width: 100%;
-	position: relative;
-}
 
 .campaign-desc {
 	position: relative;
@@ -72,21 +75,44 @@ $lightgray: #cccccc;
 	font-style: italic;
 }
 
-#how p {
-width: 100px;
-height: 100px;
-border-radius: 50px;
-font-size: 45px;
-color: #fff;
-line-height: 100px;
-background: #f16162;
-margin-left: 146px;
+.step{
+	float: left;
+	width: 33.33%;
+	height: 100px;
 }
 
-h4 {
+.step p{
+	color: $coral;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 25px;
+}
+
+.number{
+	height: 100px;
+	width: 100px;	
+	border-radius: 50px;
+	margin: 0 auto;
+	background-color: $coral;
+	padding-top: 30px;
+}
+
+.number p{
+	height: 100px;
+	width: 100px;
+	color: white;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 30px;
+}
+
+
+
+.tag-line {
 	font-size: 24px;
-	margin-left: 350px;
-	margin-bottom: 40px;
-	color: #f16162;
+	color: $coral;
 	opacity: 0.8;
+}
+
+.btn.btn-primary.pledge{
+  background-color: $coral;
+  border: none;
 }
