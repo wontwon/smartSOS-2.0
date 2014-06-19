@@ -6,7 +6,7 @@ before_action :logged_in?
   def new
     @organization = @campaign.organization
     @items = Item.all
-    @total_requests_price = @campaign.total_requests_price
+    @requests = @campaign.requests.order('updated_at DESC')
   end
 
   def create
@@ -17,26 +17,28 @@ before_action :logged_in?
     if request_for_item_exists(item_id, campaign_id)
       update_existing_request(item_id, campaign_id, request_quantity)
       redirect_to new_campaign_request_path(campaign_id)
+    elsif request_params[:quanity] == 0
+      redirect_to new_campaign_request_path(campaign_id)
     else
       save_new_request
       redirect_to new_campaign_request_path(campaign_id)
     end
   end
 
-  def edit
-    @request = Request.find(params[:id])
-  end
+  # def edit
+  #   @request = Request.find(params[:id])
+  # end
 
-  def update
-    @request = Request.find(params[:id])
-    if @request.update_attributes(request_params)
-      flash[:success] = "Request updated successfully"
-      render :edit
-    else
-      flash[:alert] = @request.errors.fulL_messages
-      render :edit
-    end
-  end
+  # def update
+  #   @request = Request.find(params[:id])
+  #   if @request.update_attributes(request_params)
+  #     flash[:success] = "Request updated successfully"
+  #     render :edit
+  #   else
+  #     flash[:alert] = @request.errors.fulL_messages
+  #     render :edit
+  #   end
+  # end
 
   def destroy
     if @request.destroy
