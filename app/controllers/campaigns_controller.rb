@@ -22,7 +22,7 @@ class CampaignsController < ApplicationController
 
     if campaign.save
       flash[:success] = "Your campaign has been created."
-      redirect_to organization_path(session[:organization_id])
+      redirect_to new_campaign_request_path(campaign)
     else
       flash[:alert] = "Problem creating new campaign."
       render 'new'
