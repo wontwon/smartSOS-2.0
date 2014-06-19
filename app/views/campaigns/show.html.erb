@@ -1,28 +1,44 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h1><%= @campaign.name %></h1>
+      <div><h1><%= @campaign.name %></h1></div>
       <div><p><%= @campaign.description %> </p></div>
       <div class="org-box">
         <div><p><%= @campaign.organization.name  %></p></div>
         <div><p><%=@campaign.organization.city %>, <%= @campaign.organization.state  %></p></div>
       </div>
+      <div class="edit-campaign-information"><%= link_to "Edit Campaign Information", edit_campaign_path(@campaign) %></div>
     </div>
 
-    <div class="requested-items col-md-3">
-      <div class="reqested-items-title"><h2>Requested Items</h2></div>
-      <div class="requested-items-total">$0.00</div>
-      <div class="requested-items-list"></div>
+    <div class="show-requested-items col-md-3">
+      <div class="show-reqested-items-title"><h2>Requested Items</h2></div>
+      <div class="show-requested-items-total">$0.00</div>
+      <div class="show-requested-items-list">
+        <% @requests.each do |request| %>
+          <div class="show-requested-item">
+            <div class="show-requested-item-name"><%= request.item.name %></div>
+            <div class="show-requested-item-quantity"><%= request.quantity %></div>
+            <div class="show-requested-item-price"><%= request.item.price %></div>
+          </div>
+        <% end %>
+      </div>
+      <div class="show-edit_requested_items"><%= link_to "Update Requested Items", new_campaign_request_path(@campaign) %></div>
     </div>
 
-    <div class="pledged-items col-md-3">
-      <div class="pledged-items-title"><h2>You Pledged:</h2></div>
-      <div class="pledged-items-total">$0.00</div>
-      <div class="pledged-items-list">Click Item to Pledge</div>
-      <div><a href="#" id="pledged-items-submit">Submit Pledges</a></div>
+    <div class="show-pledged-items col-md-3">
+      <div class="show-pledged-items-title"><h2>Pledged Items</h2></div>
+      <div class="show-pledged-items-total">$0.00</div>
+      <div class="show-pledged-items-list">
+        <% @pledges.each do |pledge| %>
+          <div class="show-pledged-item">
+            <div class="show-pledged-item-name"><%= pledge.request.item.name %></div>
+            <div class="show-pledged-item-quantity"><%= pledge.quantity %></div>
+            <div class="show-pledged-item-price"><%= pledge.request.item.price %></div>
+          </div>
+        <% end %>
+      </div>
     </div>
 
   </div>
-  <script type="text/javascript">var requestModelData = <%= @request_model_data_json || '""'.html_safe %></script>
 </div>
 
