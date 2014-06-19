@@ -1,21 +1,23 @@
-<div class="container">
+<div class="container available">
   <div class="row">
-  <h1 class="requests-new-title"><%= @campaign.name %></h1>
+    <div class="available-header">
+      <h1 class="requests-new-title"><%= @campaign.name %></h1>
+      <div class="new-requested-items-total">Total: $0.00</div>
+    </div>
     <div class="available-items col-md-6">
       <div class="available-items-title"><h2>Available Items</h2></div>
-      <div class="available-items-total">$0.00</div>
       <div class="available-items-list">
         <% @items.each do |item| %>
           <div class="available-item">
             <img class="available-item-img" src="<%= item.img_url %>" height="42" width="42">
             <div class="available-item-name"><%= item.name %></div>
-            <div class="available-item-price"><%= item.price_dollars %></div>
+            <div class="available-item-price">$<%= item.price_dollars %></div>
             <div class="available-item-quantity">
               <%= form_tag("/campaigns/#{@campaign.id}/requests", method: "post") do %>
-                <%= number_field_tag "request[quantity]", nil, in: 1...100 %>
+                x <%= number_field_tag "request[quantity]", nil, in: 1...100 %>
                 <%= hidden_field_tag "request[item_id]", item.id %>
                 <%= hidden_field_tag "request[campaign_id]", @campaign.id %>
-                <%= submit_tag("Add Items") %>
+                <%= submit_tag "Add", class: "available-item-submit" %>
               <% end %>
             </div>
           </div>
@@ -25,14 +27,13 @@
 
     <div class="new-requested-items col-md-6">
       <div class="new-requested-items-title"><h2>Requested Items</h2></div>
-      <div class="new-requested-items-total">$0.00</div>
       <div class="new-requested-items-list">
         <% @campaign.requests.each do |request| %>
           <div class="new-requested-item">
             <img class="new-requested-item-img" src="<%= request.item.img_url %>" height="42" width="42">
-            <div class="new-requested-item-name">NAME: <%= request.item.name %></div>
-            <div class="new-requested-item-quantity">QNTY: <%= request.quantity %></div>
-            <div class="new-requested-item-price">PRICE:<%= request.item.price_dollars %></div>
+            <div class="new-requested-item-name"><%= request.item.name %></div>
+            <div class="new-requested-item-quantity">x<%= request.quantity %></div>
+            <div class="new-requested-item-price">$<%= request.item.price_dollars %></div>
             <div class="new-requested-item-delete"><%= link_to 'Delete', campaign_request_path(@campaign, request), method: :delete %></div>
           </div>
         <% end %>
