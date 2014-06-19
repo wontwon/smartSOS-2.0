@@ -81,68 +81,8 @@ asins.each do |asin|
   # end
 end
 
-asins.each do |asin|
-
-  # 3.times do |num|
-
-    worker = Sucker.new(
-      :associate_tag => 'sm0cd-2',
-      :key => config_hash['development']['access_key_id'],
-      :secret => config_hash['development']['secret_access_key'],
-      :locale => :us)
-
-
-    worker << {
-      # :operation => 'ItemSearch',
-      # :item_page => num,
-      # :search_index => 'HealthPersonalCare',
-      # :keywords => item,
-      # :response_group => 'ItemAttributes, ItemIds, Large',
-      # :maximum_price => '2000'
-
-      :operation   =>  'ItemLookup',
-      :id_type      =>  'ASIN',
-      :item_id      =>  asin,
-      :response_group => 'ItemAttributes, ItemIds, Large'
-    }
-
-
-    response = worker.get
-
-    response.each('Item') do |i|
-
-
-      if i['ItemAttributes']['ListPrice']
-        name = i['ItemAttributes']['Title']
-        asin = i['ASIN']
-        category = nil
-        price = i['ItemAttributes']['ListPrice']['Amount']
-
-
-        if i['ImageSets']['ImageSet'].class == Array
-          img_url = i['ImageSets']['ImageSet'][0]['LargeImage']['URL']
-        else
-          img_url = i['ImageSets']['ImageSet']['LargeImage']['URL']
-        end
-
-        item_attributes = {name: name,
-                            asin: asin,
-                            category: nil,
-                            img_url: img_url,
-                            price: price}
-
-      item = Item.new(item_attributes)
-      if item.save
-        puts "Item saved."
-      end
-
-      end
-    sleep 1
-    end
-  # end
-end
-
 organizations.each do |org|
+  puts organizations.count
   puts 'org'
   Organization.create(
                         name: org[0],
@@ -167,31 +107,37 @@ end
                 password_confirmation: "yolo")
 end
 
-# Organization.all.each do |org|
-#   2.times do
-#     puts 'campaign'
-#     org.campaigns << Campaign.create(
-#                       name: Faker::Lorem.sentence,
-#                       description: Faker::Lorem.paragraph(sentence_count=3),
-#                       end_date: '02-10-2014')
-#   end
-# end
+Organization.all.each do |org|
+  puts "*" * 100
+  campaign_names = [  ["Hurricane Alex Relief", "Please help those affected by Hurricane Alex by donating today."],
+                      ["Tsunami Relief", "Please help those affected by the tsunami by donating today."] ]
+  campaign_names.each do |campaign_name|
+    puts 'campaign'
+    org.campaigns << Campaign.create(
+                      name: campaign_name[0],
+                      description: campaign_name[1],
+                      end_date: '06-25-2014')
+  end
+end
 
-# Campaign.all.each do |campaign|
-#   10.times do
-#     puts 'request'
-#     Request.create( campaign_id: campaign.id,
-#                     item_id: Item.all.sample.id,
-#                     quantity: rand(10))
-#   end
+Campaign.all.each do |campaign|
+  items = Item.all
+  10.times do
+    puts 'request'
+    Request.create( campaign_id: campaign.id,
+                    item_id: items.pop.id,
+                    quantity: rand(10))
+  end
 
-#   10.times do
-#     puts 'pledge'
-#     Pledge.create(  donor_id: Donor.all.sample.id,
-#                     request_id: Request.all.sample.id,
-#                     quantity: rand(10))
-#   end
-# end
+  requests = Request.all
+  donors = Donor.all
+  2.times do
+    puts 'pledge'
+    Pledge.create(  donor_id: donors.pop.id,
+                    request_id: requests.pop.id,
+                    quantity: rand(10))
+  end
+end
 
 
 
