@@ -27,8 +27,9 @@
 
     <div class="new-requested-items col-md-6">
       <div class="new-requested-items-title"><h2>Requested Items</h2></div>
+      <div class="new-requested-items-total">$<%= @campaign.total_requests_price %></div>
       <div class="new-requested-items-list">
-        <% @campaign.requests.each do |request| %>
+        <% @requests.each do |request| %>
           <div class="new-requested-item">
             <img class="new-requested-item-img" src="<%= request.item.img_url %>" height="42" width="42">
             <div class="new-requested-item-name"><%= request.item.name %></div>

@@ -14,7 +14,7 @@
 
     <div class="show-requested-items col-md-3">
       <div class="show-reqested-items-title"><h2>Requested Items</h2></div>
-      <div class="show-requested-items-total">$0.00</div>
+      <div class="show-requested-items-total">$<%= @campaign.total_requests_price %></div>
       <div class="show-requested-items-list">
         <% @requests.each do |request| %>
           <div class="show-requested-item">
@@ -29,7 +29,7 @@
 
     <div class="show-pledged-items col-md-3">
       <div class="show-pledged-items-title"><h2>Pledged Items</h2></div>
-      <div class="show-pledged-items-total">$0.00</div>
+      <div class="show-pledged-items-total">$<%= @campaign.total_pledges_price %></div>
       <div class="show-pledged-items-list">
         <% @pledges.each do |pledge| %>
           <div class="show-pledged-item">
