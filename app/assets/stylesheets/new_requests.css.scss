@@ -96,10 +96,11 @@
 }
 
 .new-requested-items-total{
+  color: $white;
   display: inline;
   background: $moneygreen;
   border-radius: 10px;
-  width: 20%;
+  padding: 2px 14px;
   font-size: 25px;
   text-align: center;
 }
