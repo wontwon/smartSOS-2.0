@@ -6,7 +6,7 @@ before_action :logged_in?
   def new
     @organization = @campaign.organization
     @items = Item.all
-    @total_requests_price = @campaign.total_requests_price
+    @requests = @campaign.requests.order('updated_at DESC')
   end
 
   def create
