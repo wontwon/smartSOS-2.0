@@ -1,102 +1,126 @@
-.btn.btn-info.btn-xs{
-  margin-top: 4px;
+@import "application_colorway";
+
+// campaign description area
+.campaign-description, .org-name, .org-location{
+  height: auto;
+  width: auto;
+  border-radius: 5px;
+  border: 1px solid $jade;
+  padding: 5px;
+  margin: 5px;
 }
 
-.item-div, .pledgeitem-div {
-  height: 115px;
+
+// requested items && pledges items columns
+
+.requested-items-title, .pledged-items-title{
+  color: $coral;
+}
+
+.requested-item {
+  height: auto;
   width: 100%;
   padding: 5px;
   margin-top: 2px;
   border-radius: 5px;
-  background-color: #3498DB;
+  background-color: $jade;
   cursor: pointer;
+  overflow: hidden;
 }
 
-.item-div:hover {
-  background-color: #C498AF;
-}
-
-.col-md-3{
+.pledged-item {
+  height: auto;
+  width: 100%;
   padding: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
+  background-color: $bluegray;
+  cursor: pointer;
+  overflow: hidden;
 }
 
-.item-img{
+.pledged-items-list{
+  text-align: center;
+  font-weight: bold;
+  color: $jade;
+}
+
+.requested-item:hover {
+  background-color: #00727b;
+}
+
+.requested-item-img{
   float: left;
-  display: inline-block;
+  height: 80px;
+  width: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 2px;
+}
+
+.requested-item-img img {
+  height: 80px;
+  width: 80px;
+}
+
+
+.requested-item-name, .pledged-item-name{
+  float: left;
+  width: 60%;
   height: auto;
-  width: 50px;
-}
-
-.item-desc{
-  float: left;
-  text-size: 12px;
-  height: 40px;
-  width: 210px;
-  float: left;
-}
-
-
-.item-desc p{
-  font-size: 12px;
   color: white;
+  font-size: 10px;
 }
 
-.item-footer{
-  clear: both;
-  width: auto;
-  margin-top: 5px;
-  height: 60px;
-  padding-top: 5px;
+.requested-items.col-md-3{
+  border-right: 1px solid $bluegray;
+  border-left: 1px solid $bluegray;
+  padding-bottom: 5px;
 }
 
-.item-price{
+.requested-item-quantity{
   float: left;
-  height: 57px;
-  width: 33%;
-  text-align: center;
-  border-right: 1px solid white;
-}
-
-.item-price p:nth-child(2){
-  font-size: 20px;
-  color: white;
-}
-
-.item-qty{
-  float: left;
-  height: 57px;
-  width: 33%;
-  text-align: center;
-  border-right: 1px solid white
-}
-
-.item-qty p:nth-child(2){
-  font-size: 20px;
-  color: white;
-}
-
-.item-plg{
-  padding-top: 5px;
-  float: left;
+  width: 50%;
   height: auto;
-  width: 33%;
-  text-align: center;
+  color: $coral;
+  font-weight: bold;
 }
 
-.pledge-name{
+.pledged-item-quantity{
+  float: left;
+  width: 50%;
+  height: auto;
+  color: $coral;
+  font-weight: bold;
+}
+
+.requested-item-price, .pledged-item-price{
+  float: left;
+  width: 50%;
+  height: auto;
   color: white;
 }
 
-
-.pledge-qty{
-  height: 40px;
-  width: 40px;
-  float: right;
-  color: white;
+.requested-items-total{
   font-size: 25px;
-  text-weight: italic;
   text-align: center;
-  border-radius: 20px;
-  background-color: gray;
 }
 
+.pledged-items-total{
+  font-size: 25px;
+  text-align: center;
+}
+
+.btn.btn-primary.submit{
+  background-color: $jade;
+  margin-left: 25%;
+  margin-top: 5px;
+}
+
+
+.container.pledge{
+  border-radius: 10px;
+  border: 1px solid $bluegray;
+  margin-top: 10px;
+
+}
