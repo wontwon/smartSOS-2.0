@@ -32,15 +32,6 @@ describe RequestsController do
         }.to change(Request, :count).by(1)
       end
     end
-
-    context 'with zero quantity' do
-      it 'does not save the new request to the database' do
-        expect {
-          post :create, campaign_id: campaign.id,
-            request: {campaign_id: campaign.id, item_id: item.id, quantity: 0}
-        }.to_not change(Request, :count)
-      end
-    end
   end
 
   describe 'GET #edit' do
