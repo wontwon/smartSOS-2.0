@@ -17,7 +17,11 @@
         <li><%= link_to "About Us", aboutus_path %></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li id="org-btn"><%= link_to "I'm an Organization", organizations_login_path%></li>
+        <% if @organization %>
+          <li id="org-btn"><%= link_to "I'm an Organization", organization_path(@organization) %></li>
+        <% else %>
+          <li id="org-btn"><%= link_to "I'm an Organization", organizations_login_path %></li>
+        <% end %>
         <li id="pledge-btn"><%= link_to "Make a pledge", campaigns_path %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
