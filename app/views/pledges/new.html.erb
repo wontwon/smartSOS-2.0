@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h1 class="dashboard-title">Show Campaign</h1>
+      <h1 class="dashboard-title" data-id="<%= @campaign.id %>">Show Campaign</h1>
       <h1><%= @campaign.name %></h1>
       <div><p><%= @campaign.description %> </p></div>
       <div class="org-box">
@@ -20,8 +20,10 @@
       <div class="pledged-items-title"><h2>You Pledged:</h2></div>
       <div class="pledged-items-total">$0.00</div>
       <div class="pledged-items-list">Click Item to Pledge</div>
+      <div><a href="#" id="pledged-items-submit">Submit Pledges</a></div>
     </div>
 
   </div>
   <script type="text/javascript">var requestModelData = <%= @request_model_data_json || '""'.html_safe %></script>
 </div>
+

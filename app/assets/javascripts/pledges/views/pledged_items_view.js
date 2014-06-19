@@ -4,7 +4,7 @@ PledgedItemsView.prototype = {
   render: function(pledgedItemsList) {
     var pledgedItems = pledgedItemsList.pledges
 
-    $('.pledged-items-total').text(pledgedItemsList.total.toFixed(2));
+    $('.pledged-items-total').text('$' + pledgedItemsList.total.toFixed(2));
 
     $('.pledged-items-list').empty();
 

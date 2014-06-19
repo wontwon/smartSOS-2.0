@@ -4,8 +4,7 @@ RequestedItemsView.prototype = {
   render: function(requestedItemsList) {
     var requestedItems = requestedItemsList.requests
 
-    $('.requested-items-total').text(requestedItemsList.total.toFixed(2));
-
+    $('.requested-items-total').text('$' + requestedItemsList.total.toFixed(2));
     $('.requested-items-list').empty();
 
     for(var i=0; i < requestedItems.length; i++) {

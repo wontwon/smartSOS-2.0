@@ -13,6 +13,14 @@ ApplicationController.prototype = {
     });
   },
 
+  listenForPledgesSubmit: function() {
+    var self = this;
+    $(document).on('click', '#pledged-items-submit', function(event) {
+      event.preventDefault();
+      self.pledgedItemsController.submitPledgedItems();
+    })
+  },
+
   transferItem: function(item_id) {
     for(var i=0; i<requestModelData.length; i++) {
       if (requestModelData[i].id === item_id) {
