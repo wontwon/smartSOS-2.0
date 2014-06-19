@@ -6,15 +6,24 @@
 @import "dashboard";
 @import "homepage";
 @import "all_organizations";
-@import "show_campaign";
+@import "new_pledges";
+@import "show_campaign.css.scss";
+@import "new_requests.css.scss";
 
 body {
 	padding: 0px;
 }
 
-li {
-	list-style-type: none;
-}
+// li {
+// 	border: 1px solid red;
+// 	list-style-type: none;
+// }
+
+
+	// div {
+	// 	border: 1px solid red;
+	// }
+
 
 .alert-danger {
 	background: none;
@@ -24,17 +33,25 @@ li {
 	padding: 0;
 }
 
+#footer {
+	height: 20%;
+}
+
 #footer img {
-	position: absolute;
+	position: relative;
 	bottom: 0px;
 	height: 20%;
-	right: 20%;
+	float:right;
+}
+
+#home{
+	height: 50px;
 }
 
 #home img {
-	position: absolute;
-	top: 15%;
-	height: 7%;
-	right: 10%;
+	position: relative;
+	height: 50px;
+	width: 50px;
+	float: right;
 }
 

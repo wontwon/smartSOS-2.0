@@ -1,0 +1,149 @@
+.available-items.col-md-6{
+  text-align: center;
+  // border-top: 1px solid $bluegray;
+  // border-right: 1px solid $bluegray;
+  padding-bottom: 5px;
+}
+
+.new-requested-items.col-md-6{
+  text-align: center;
+  // border-top: 1px solid $bluegray;
+  padding-bottom: 5px;
+}
+
+.available-items-title, .new-requested-items-title{
+  margin: 30px 0;
+  color: $coral;
+}
+
+.available-item {
+  text-align: left;
+  height: 100px;
+  width: 100%;
+  padding: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
+  background-color: $jade;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.new-requested-item {
+  text-align: left;
+  height: 100px;
+  width: 100%;
+  padding: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
+  background-color: $bluegray;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.available-item-img, .new-requested-item-img{
+  float: left;
+  height: 80px;
+  width: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 2px;
+}
+
+.available-item-name, .new-requested-item-name{
+  float: left;
+  width: 60%;
+  height: auto;
+  color: white;
+  font-size: 14px;
+}
+
+.available-item-quantity{
+  float: right;
+  width: 25%;
+  height: auto;
+  color: $coral;
+  font-weight: bold;
+}
+
+.new-requested-item-quantity{
+  float: right;
+  width: 25%;
+  height: auto;
+  color: $coral;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.available-item-price, .new-requested-item-price{
+  float: left;
+  width: 50%;
+  height: auto;
+  color: white;
+  size: 14px;
+}
+
+.new-requested-item-delete a{
+  background-color: $skyblue;
+  border-radius: 10px;
+  color: $white;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.new-requested-item-delete a:hover{
+  text-decoration: none;
+  background-color: $darkbluegreen;
+}
+
+.new-requested-items-total{
+  color: $white;
+  display: inline;
+  background: $moneygreen;
+  border-radius: 10px;
+  padding: 2px 14px;
+  font-size: 25px;
+  text-align: center;
+}
+
+.new-requested-items-submit{
+  float: right;
+  display: inline;
+  background: $skyblue;
+  border-radius: 10px;
+  width: 20%;
+  font-size: 25px;
+  text-align: center;
+}
+
+.new-requested-items-submit:hover{
+  background: $darkbluegreen;
+}
+
+.new-requested-items-submit a{
+  color: $white;
+  text-decoration: none;
+}
+
+.available-item-submit{
+  border: none;
+  padding: 4px 6px 4px 6px;
+  background-color: $skyblue;
+  border-radius: 10px;
+  color: $white;
+  margin-left: 5%;
+  margin-top: 5px;
+}
+
+.available-item-submit:hover{
+  background: $darkbluegreen;
+}
+
+.container.available{
+//   border-radius: 10px;
+//   border: 1px solid $bluegray;
+  margin-top: 10px;
+}
+
+.available-header-buttons{
+}
+

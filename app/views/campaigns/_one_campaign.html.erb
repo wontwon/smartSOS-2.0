@@ -1,20 +1,69 @@
-<div class="all-title">
-  <p class="campaign-title"><%= campaign.name %></p>
-</div>
+<% @campaigns.each do |campaign| %>
+  <div class="col-sm-6 col-md-4">
 
-<div class="campaign-desc">
-  <p><%= campaign.description %></p>
-</div>
 
-<div class="campaign-footer">
+    <div class="campaign-holder">
 
-  <div class="all progress">
-    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%=campaign.percentage_goal_complete%>%">
+      <div class="campaign-title">
+        <p><%= campaign.name %></p>
+      </div>
+
+      <div class="campaign-details">
+    
+        <div class="detail-box">
+          <p>Items Requested</p>
+          <p class="detail-content"><%= campaign.total_request_quantity  %></p>
+        </div>
+        <div class="detail-box">
+          <p>Total Items Pledged</p>
+          <p class="detail-content"> <%= campaign.total_pledge_quantity %></p>
+        </div>
+
+        <div>
+          <p class= "text-center">Percentage of Total Pledged</p>
+          <p class=" detail-content percentage text-center"><%= campaign.percentage_goal_complete %></p>
+        </div>
+      </div>
+
+
+      <div class="detail-footer">
+
+
+        <div class="progress">
+          <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: <%= campaign.percentage_goal_complete %>%">
+          </div>
+        </div>
+
+        <div class="pledge-btn">
+          <%= link_to "PLEDGE", new_campaign_pledge_path(campaign.id), class: "btn btn-primary pledge" %>
+        </div>
+
+      </div>
     </div>
   </div>
+<% end %>
 
-  <div class="pledge-btn">
-    <%= link_to "PLEDGE", new_campaign_pledge_path(campaign), class: "btn btn-primary" %>
-  </div>
 
-</div>
+<!-- <script type="text/javascript">
+  var pledgePercentages = $('.detail-content.percentage')
+
+  for (var i = 0; i < pledgePercentages.length; i++){ 
+    $({someValue: 0}).animate({someValue: 45},{
+        duration: 3000,
+        easing:'swing', // can be anything
+        step: function() { // called on every step
+            // Update the element's text with rounded-up value:
+            $('.detail-content.text-center').text(commaSeparateNumber(Math.round(this.someValue)));
+        }
+    });
+  }
+
+ function commaSeparateNumber(val){
+    while (/(\d+)(\d{3})/.test(val.toString())){
+      val = val.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+    }
+    return val;
+  }
+</script> -->
+
+
