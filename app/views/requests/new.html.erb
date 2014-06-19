@@ -1,35 +1,30 @@
 <h1>Campaign Make Requests Page</h1>
 
-<div>
+<div class='org-side-requested-items-list'>
   <% @campaign.requests.each do |request| %>
-    <span>
+    <div class='org-side-requested-item'>
       QNTY: <%= request.quantity %>
-      <img src="<%= request.requested_item.img_url %>" height="42" width="42">
-      NAME: <%= request.requested_item.name %><br>
-      PRICE:<%= request.requested_item.price_dollars %>
-      <%= link_to 'Delete', organization_campaign_request_path(@organization, @campaign, request), method: :delete %>
-
-    </span><br>
+      <img src="<%= request.item.img_url %>" height="42" width="42">
+      NAME: <%= request.item.name %><br>
+      PRICE:<%= request.item.price_dollars %>
+      <%= link_to 'Delete', campaign_request_path(@campaign, request), method: :delete %>
+    </div>
   <% end %><br>
 </div>
 
 
-<div>
+<div class='items-list'>
   <% @items.each do |item| %>
-    <div>
-      <span>
+    <div class='item'>
         <img src="<%= item.img_url %>" height="42" width="42">
         <%= item.name %><br>
         <%= item.price_dollars %>
-        <%= form_tag("/organizations/#{@organization.id}/campaigns/#{@campaign.id}/requests", method: "post") do %>
+        <%= form_tag("/campaigns/#{@campaign.id}/requests", method: "post") do %>
           <%= number_field_tag "request[quantity]", nil, in: 1...100 %>
           <%= hidden_field_tag "request[item_id]", item.id %>
           <%= hidden_field_tag "request[campaign_id]", @campaign.id %>
           <%= submit_tag("Add Items") %>
         <% end %>
-      </span><br>
     </div>
   <% end %>
-
-
 </div>
