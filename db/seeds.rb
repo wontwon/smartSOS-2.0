@@ -14,11 +14,15 @@ config_hash = YAML::load_file('config/secrets.yml')
 
 organization_names = ["Red Cross", "Children's Disaster Services"]
 
-general_search_items = %w[soap toothbrush toothpaste tampons] #dog_food water canned_food batteries first_aid_kit baby_formula diapers dehydrated_food]
+# general_search_items = %w[soap toothbrush toothpaste tampons] #dog_food water canned_food batteries first_aid_kit baby_formula diapers dehydrated_food]
+asins = %w[ B0069FTP0G B001949TKS B0039PV1QK B005FEGYJC B000GCRWCG B005VYRBRA B001YJHEDW
+            B002GYVFOI B004E3EIEI B000KKB2OS B001U6MJCK B00363WZY2 B00363X1M2 B001HT720O
+            B00IKLHDLU B004VLKLJE B00BG2BBSG B005IRWWZ6 B00008W2LC B00BLZ2312]
 
-general_search_items.each do |item|
+# general_search_items.each do |item|
+asins.each do |asin|
 
-  3.times do |num|
+  # 3.times do |num|
 
     worker = Sucker.new(
       :associate_tag => 'sm0cd-2',
@@ -28,12 +32,17 @@ general_search_items.each do |item|
 
 
     worker << {
-      :operation => 'ItemSearch',
-      :item_page => num,
-      :search_index => 'HealthPersonalCare',
-      :keywords => item,
-      :response_group => 'ItemAttributes, ItemIds, Large',
-      :maximum_price => '2000'
+      # :operation => 'ItemSearch',
+      # :item_page => num,
+      # :search_index => 'HealthPersonalCare',
+      # :keywords => item,
+      # :response_group => 'ItemAttributes, ItemIds, Large',
+      # :maximum_price => '2000'
+
+      :operation   =>  'ItemLookup',
+      :id_type      =>  'ASIN',
+      :item_id      =>  asin,
+      :response_group => 'ItemAttributes, ItemIds, Large'
     }
 
 
@@ -69,7 +78,68 @@ general_search_items.each do |item|
       end
     sleep 1
     end
-  end
+  # end
+end
+
+asins.each do |asin|
+
+  # 3.times do |num|
+
+    worker = Sucker.new(
+      :associate_tag => 'sm0cd-2',
+      :key => config_hash['development']['access_key_id'],
+      :secret => config_hash['development']['secret_access_key'],
+      :locale => :us)
+
+
+    worker << {
+      # :operation => 'ItemSearch',
+      # :item_page => num,
+      # :search_index => 'HealthPersonalCare',
+      # :keywords => item,
+      # :response_group => 'ItemAttributes, ItemIds, Large',
+      # :maximum_price => '2000'
+
+      :operation   =>  'ItemLookup',
+      :id_type      =>  'ASIN',
+      :item_id      =>  asin,
+      :response_group => 'ItemAttributes, ItemIds, Large'
+    }
+
+
+    response = worker.get
+
+    response.each('Item') do |i|
+
+
+      if i['ItemAttributes']['ListPrice']
+        name = i['ItemAttributes']['Title']
+        asin = i['ASIN']
+        category = nil
+        price = i['ItemAttributes']['ListPrice']['Amount']
+
+
+        if i['ImageSets']['ImageSet'].class == Array
+          img_url = i['ImageSets']['ImageSet'][0]['LargeImage']['URL']
+        else
+          img_url = i['ImageSets']['ImageSet']['LargeImage']['URL']
+        end
+
+        item_attributes = {name: name,
+                            asin: asin,
+                            category: nil,
+                            img_url: img_url,
+                            price: price}
+
+      item = Item.new(item_attributes)
+      if item.save
+        puts "Item saved."
+      end
+
+      end
+    sleep 1
+    end
+  # end
 end
 
 organization_names.each do |org|
