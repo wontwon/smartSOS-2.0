@@ -1,5 +1,4 @@
-$green: green;
-$lightgray: #cccccc;
+@import "application_colorway";
 
 #dashboard-container{
   padding-top: 20px;
@@ -16,11 +15,12 @@ $lightgray: #cccccc;
   height: 110px;
   width: 146px;
   text-align: center;
-  padding-top: 30px;
+  padding-top: 20px;
+  border-radius: 5px;
 }
 
 .detail-content{
-  color: white;
+  color: $coral;
   font-size: 2em;
 }
 
@@ -36,11 +36,21 @@ $lightgray: #cccccc;
   // border: 1px solid #cccccc;
   margin-bottom: 20px;
   border-radius: 10px;
-  background-color: $lightgray;
-  // -moz-box-shadow:    1px 1px 2px 2px #666666;
-  // -webkit-box-shadow: 1px 1px 2px 2px #666666;
-  // box-shadow:         1px 1px 2px 2px #666666;
-  opacity: 0.8;
+  // border: 1px solid $bluegray;
+  background-color: $jade;
+}
+
+.campaign-holder.new{
+  width: 320px;
+  height: 400px;
+  padding-top: 200px;
+  // border: 1px solid #cccccc;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  // border: 1px solid $bluegray;
+  background-color: $jade;
+  text-align: center;
+  vertical-align: middle;
 }
 
 .campaign-title{
@@ -51,10 +61,11 @@ $lightgray: #cccccc;
 }
 
 .campaign-details{
-  padding-top: 4px;
+  padding: 2px;  
   height: 250px;
   width: auto;
-  border: 1px solid white;
+  border: 1px solid $bluegray;
+  background-color: white;
   border-radius: 10px;
 }
 
@@ -73,5 +84,7 @@ $lightgray: #cccccc;
   float: right;
 }
 
-.new-campaign {
+.btn.btn-primary.new-campaign{
+  background-color: $coral;
+  border: none;
 }

@@ -30,7 +30,7 @@ class PledgesController < ApplicationController
       Request.find(request_id).update_attribute('quantity', new_request_quantity)
     end
     flash[:alert] = "Thank you for your donation."
-    redirect_to new_campaign_pledge_path(params[:campaign_id])
+    redirect_to root_path
   end
 
   private
