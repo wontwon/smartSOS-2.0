@@ -6,7 +6,7 @@
 @import "dashboard";
 @import "homepage";
 @import "all_organizations";
-@import "show_campaign";
+@import "new_pledges";
 
 body {
 	background-image: url('./whitey.png');
@@ -17,7 +17,7 @@ li {
 	list-style-type: none;
 }
 
-div { 
+div {
 	border: 1px solid red;
 }
 
