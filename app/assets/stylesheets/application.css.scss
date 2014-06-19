@@ -9,7 +9,8 @@
 @import "new_pledges";
 
 body {
-
+	background-image: url('./whitey.png');
+	padding: 0px;
 }
 
 li {
@@ -20,20 +21,6 @@ div {
 	border: 1px solid red;
 }
 
-#top-home {
-	postion: fixed;
-	top: 0;
-	height: 50px;
-	width: 100%;
-}
-
-#top-home a img {
-	position: absolute;
-	top: 12px;
-	right: 400px;
-	height: 40px;
-}
-
 .alert-danger {
 	background: none;
 	border: none;
@@ -41,3 +28,26 @@ div {
 	top: 3%;
 	padding: 0;
 }
+
+#footer {
+	height: 20%;
+}
+
+#footer img {
+	position: relative;
+	bottom: 0px;
+	height: 20%;
+	float:right;
+}
+
+#home{
+	height: 50px;
+}
+
+#home img {
+	position: relative;
+	height: 50px;
+	width: 50px;
+	float: right;
+}
+
