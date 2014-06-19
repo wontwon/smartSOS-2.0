@@ -12,7 +12,8 @@ class PledgesController < ApplicationController
         front_end_model << {id: request.id,
                             name: request.item.name,
                             quantity: request.quantity,
-                            price: request.item.price_dollars}
+                            price: request.item.price_dollars,
+                            url: request.item.img_url}
       end
       @request_model_data_json = @front_end_request_model.to_json.html_safe
   end
