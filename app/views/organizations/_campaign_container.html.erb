@@ -47,7 +47,7 @@
 
             <% end %>
 
-            <%= link_to "View/Edit", edit_campaign_path(campaign.id), class: "btn btn-primary", role: "button" %>
+            <%= link_to "View/Edit", campaign_path(campaign.id), class: "btn btn-primary", role: "button" %>
             <!-- <a href="" class="btn btn-primary" role="button">View/Edit</a> -->
             <% if  campaign.pledges.count > 0 %>
               <input type="submit" name="add" class="btn btn-danger" value="Checkout" onclick="open_win()" />
@@ -58,4 +58,4 @@
       </div>
     </div>
     <% end %>
-  
+
