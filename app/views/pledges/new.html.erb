@@ -1,26 +1,28 @@
-<div class="container">
+<div class="container pledge">
   <div class="row">
     <div class="col-md-6">
-      <h1 class="dashboard-title" data-id="<%= @campaign.id %>">Show Campaign</h1>
-      <h1><%= @campaign.name %></h1>
-      <div><p><%= @campaign.description %> </p></div>
+      <h1 class="dashboard-title" data-id="<%= @campaign.id %>"><%= @campaign.name %></h1>
+      <h4>Campaign Description</h4>
+      <div class="campaign-description"><p><%= @campaign.description %> </p></div>
       <div class="org-box">
-        <div><p><%= @campaign.organization.name  %></p></div>
-        <div><p><%=@campaign.organization.city %>, <%= @campaign.organization.state  %></p></div>
+        <h4>Organization</h4>
+        <div class="org-name"><p><%= @campaign.organization.name  %></p></div>
+        <h4>Where are we located?</h4>
+        <div class="org-location"><p><%=@campaign.organization.city %>, <%= @campaign.organization.state  %></p></div>
       </div>
     </div>
 
     <div class="requested-items col-md-3">
-      <div class="reqested-items-title"><h2>Requested Items</h2></div>
+      <div class="requested-items-title"><h2>Requested Items</h2></div>
       <div class="requested-items-total">$0.00</div>
       <div class="requested-items-list"></div>
     </div>
 
     <div class="pledged-items col-md-3">
-      <div class="pledged-items-title"><h2>You Pledged:</h2></div>
+      <div class="pledged-items-title text-center"><h2>You Pledged</h2></div>
       <div class="pledged-items-total">$0.00</div>
       <div class="pledged-items-list">Click Item to Pledge</div>
-      <div><a href="#" id="pledged-items-submit">Submit Pledges</a></div>
+      <div><a href="#" class="btn btn-primary submit" id="pledged-items-submit">Submit Pledges</a></div>
     </div>
 
   </div>
