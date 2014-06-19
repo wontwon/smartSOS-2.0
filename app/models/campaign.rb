@@ -30,10 +30,11 @@ class Campaign < ActiveRecord::Base
   end
 
   def percentage_goal_complete
-    total_pledges_price = total_pledges_price.to_f
+    total_pledges_price = self.total_pledges_price.to_f
+
 
     if total_pledges_price > 0
-      ((total_pledges_price / total_requests_price) * 100).round
+      return ((total_pledges_price / total_requests_price.to_f) * 100).round
     else
       return 0
     end

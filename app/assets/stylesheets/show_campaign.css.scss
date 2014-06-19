@@ -1,3 +1,127 @@
-// div {
-//   border: 1px solid red;
-// }
+@import "application_colorway";
+
+// campaign description area
+.show-campaign-description, .show-org-name, .show-org-location{
+  height: auto;
+  width: auto;
+  border-radius: 5px;
+  border: 1px solid $jade;
+  padding: 5px;
+  margin: 5px;
+}
+
+
+// requested items && pledges items columns
+
+.show-requested-items-title, .show-pledged-items-title{
+  color: $coral;
+}
+
+.show-requested-item {
+  height: auto;
+  width: 100%;
+  padding: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
+  background-color: $jade;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.show-pledged-item {
+  height: auto;
+  width: 100%;
+  padding: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
+  background-color: $bluegray ;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.pledged-items-list{
+  text-align: center;
+  font-weight: bold;
+  color: $jade;
+}
+
+
+.show-requested-item-img{
+  float: left;
+  height: 80px;
+  width: 80px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 2px;
+}
+
+.show-requested-item-img img {
+  height: 80px;
+  width: 80px;
+}
+
+
+.show-requested-item-name, .show-pledged-item-name{
+  float: left;
+  width: 60%;
+  height: auto;
+  color: white;
+  font-size: 10px;
+}
+
+.show-requested-items.col-md-3{
+  border-right: 1px solid $bluegray;
+  border-left: 1px solid $bluegray;
+  padding-bottom: 5px;
+}
+
+.show-pledged-items.col-md-3{
+  padding-bottom: 5px;
+}
+
+.show-requested-item-quantity{
+  float: left;
+  width: 50%;
+  height: auto;
+  color: $coral;
+  font-weight: bold;
+}
+
+.show-pledged-item-quantity{
+  float: left;
+  width: 50%;
+  height: auto;
+  color: black;
+  font-weight: bold;
+}
+
+.show-requested-item-price, .show-pledged-item-price{
+  float: left;
+  width: 50%;
+  height: auto;
+  color: white;
+}
+
+.show-requested-items-total{
+  font-size: 25px;
+  text-align: center;
+}
+
+.show-pledged-items-total{
+  font-size: 25px;
+  text-align: center;
+}
+
+.btn.btn-primary.edit{
+  background-color: $coral;
+  margin-left: 25%;
+  margin-top: 5px;
+  border: none;
+}
+
+
+.container.requested{
+  border-radius: 10px;
+  border: 1px solid $bluegray;
+  margin-top: 10px;
+}

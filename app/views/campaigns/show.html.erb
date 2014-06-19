@@ -1,29 +1,54 @@
-<div class="container">
+<div class="container requested">
   <div class="row">
     <div class="col-md-6">
-      <div><h1><%= @campaign.name %></h1></div>
-      <div><p>Start Date: <%= @campaign.created_at %></p></div>
-      <div><p>End Date: <%= @campaign.end_date %></p></div>
-      <div><p><%= @campaign.description %></p></div>
-      <div class="org-box">
-        <div><p><%= @campaign.organization.name  %></p></div>
-        <div><p><%=@campaign.organization.city %>, <%= @campaign.organization.state  %></p></div>
-      </div>
-      <div class="edit-campaign-information"><%= link_to "Edit Campaign Information", edit_campaign_path(@campaign) %></div>
+
+        <div><h1><%= @campaign.name %></h1></div>
+        
+        <div><p>Start Date: <%= @campaign.created_at %></p></div>
+        
+        <div><p>End Date: <%= @campaign.end_date %></p></div>
+        
+
+        <h4>Campaign Description</h4>
+        <div class="show-campaign-description">
+          <p><%= @campaign.description %></p>
+        </div>
+        <div class="org-box">
+     
+        <h4>Organization Name</h4>
+        <div class="show-org-name">
+          <p><%= @campaign.organization.name  %></p>
+        </div>
+
+        <h4>Location</h4>
+        <div class="show-org-location">
+        <p><%=@campaign.organization.city %>, <%= @campaign.organization.state  %></p>
+        </div>
+    </div>
+
+      <%= link_to "Edit Campaign Information", edit_campaign_path(@campaign), class: "btn btn-primary edit" %>
     </div>
 
     <div class="show-requested-items col-md-3">
-      <div class="show-reqested-items-title"><h2>Requested Items</h2></div>
-      <div class="show-requested-items-total">$<%= @campaign.total_requests_price %></div>
+
+      <div class="show-requested-items-title">
+        <h2>Requested Items</h2>
+      </div>
+      
+      <div class="show-requested-items-total">$<%= @campaign.total_requests_price %>
+      </div>
+
       <div class="show-requested-items-list">
         <% @requests.each do |request| %>
           <div class="show-requested-item">
+            <img class="show-requested-item-img" src="<%= request.item.img_url %>">
             <div class="show-requested-item-name"><%= request.item.name %></div>
-            <div class="show-requested-item-quantity"><%= request.quantity %></div>
-            <div class="show-requested-item-price"><%= request.item.price %></div>
+            <div class="show-requested-item-quantity">x<%= request.quantity %></div>
+            <div class="show-requested-item-price">$<%= request.item.price_dollars %></div>
           </div>
         <% end %>
       </div>
+
       <div class="show-edit_requested_items"><%= link_to "Update Requested Items", new_campaign_request_path(@campaign) %></div>
     </div>
 
@@ -33,9 +58,10 @@
       <div class="show-pledged-items-list">
         <% @pledges.each do |pledge| %>
           <div class="show-pledged-item">
+            <img class="show-requested-item-img" src="<%= pledge.item.img_url %>">
             <div class="show-pledged-item-name"><%= pledge.request.item.name %></div>
-            <div class="show-pledged-item-quantity"><%= pledge.quantity %></div>
-            <div class="show-pledged-item-price"><%= pledge.request.item.price %></div>
+            <div class="show-pledged-item-quantity">x<%= pledge.quantity %></div>
+            <div class="show-pledged-item-price">$<%= pledge.request.item.price_dollars %></div>
           </div>
         <% end %>
       </div>
