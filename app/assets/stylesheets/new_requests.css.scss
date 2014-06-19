@@ -95,12 +95,33 @@
   background-color: $darkbluegreen;
 }
 
-.available-items-total, .new-requested-items-total{
+.new-requested-items-total{
+  color: $white;
+  display: inline;
   background: $moneygreen;
   border-radius: 10px;
-  width: 15%;
+  padding: 2px 14px;
   font-size: 25px;
   text-align: center;
+}
+
+.new-requested-items-submit{
+  float: right;
+  display: inline;
+  background: $skyblue;
+  border-radius: 10px;
+  width: 20%;
+  font-size: 25px;
+  text-align: center;
+}
+
+.new-requested-items-submit:hover{
+  background: $darkbluegreen;
+}
+
+.new-requested-items-submit a{
+  color: $white;
+  text-decoration: none;
 }
 
 .available-item-submit{
@@ -121,5 +142,8 @@
 //   border-radius: 10px;
 //   border: 1px solid $bluegray;
   margin-top: 10px;
+}
+
+.available-header-buttons{
 }
 
