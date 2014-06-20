@@ -45,8 +45,8 @@
           <% end %>
 
          <ul class="nav navbar-nav navbar-right">
-           <% if @organization %>
-             <li id="org-btn"><%= link_to "I'm an Organization", organization_path(@organization) %></li>
+           <% if organization_logged_in? %>
+             <li id="org-btn"><%= link_to "I'm an Organization", organization_path(session[:organization_id]) %></li>
            <% else %>
              <li id="org-btn"><%= link_to "I'm an Organization", organizations_login_path %></li>
            <% end %>
