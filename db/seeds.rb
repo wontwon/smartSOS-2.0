@@ -10,7 +10,7 @@ end
 
 reset_database!
 
-config_hash = YAML::load_file('config/secrets.yml')
+
 
 organizations = [["Red Cross", "redcross@redcross.org"], ["UNICEF", "unicef@unicef.org"]]
 
