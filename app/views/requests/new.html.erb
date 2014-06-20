@@ -1,6 +1,7 @@
 <div class="container available">
   <div class="row">
     <div class="available-header">
+      <h1 class="requests-new-title text-center"><%= @campaign.organization.name %></h1>
       <h1 class="requests-new-title"><%= @campaign.name %></h1>
       <div class="available-header-buttons">
         <div class="new-requested-items-total">Total: $<%= @campaign.total_requests_price %></div>
