@@ -2,7 +2,7 @@
 <% end %>
 
 <div class="container">
-  <h1 class="dashboard-title">Organization Dashboard</h1>
+  <h1 class="dashboard-title">Organization Dashboard - <%= @organization.name %></h1>
   <%= link_to "Create New Campaign", new_campaign_path, class:"btn btn-primary new-campaign", style: "float: left" %>
   <%= link_to "Edit Organization", edit_organization_path(@organization), style: "margin-left: 5px" %>
 </div>

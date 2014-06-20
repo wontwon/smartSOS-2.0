@@ -42,12 +42,14 @@ class Campaign < ActiveRecord::Base
 
   def total_request_quantity
     requests = self.requests
-    requests.pluck(:quantity).reduce(:+)
+
+    requests.pluck(:quantity).reduce(:+) || 0
   end
 
   def total_pledge_quantity
     pledges = self.pledges
-    pledges.pluck(:quantity).reduce(:+)
+
+    pledges.pluck(:quantity).reduce(:+) || 0
   end
 
 
