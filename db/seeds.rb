@@ -26,8 +26,8 @@ asins.each do |asin|
 
     worker = Sucker.new(
       :associate_tag => 'sm0cd-2',
-      :key => config_hash['development']['access_key_id'],
-      :secret => config_hash['development']['secret_access_key'],
+      :key => ENV[:access_key_id],
+      :secret => ENV[:secret_access_key],
       :locale => :us)
 
 
