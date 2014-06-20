@@ -37,6 +37,13 @@
          <ul class="nav navbar-nav navbar-left">
            <li><%= link_to "About Us", aboutus_path %></li>
          </ul>
+
+         <% if donor_logged_in? || organization_logged_in? %>
+         <ul class="nav navbar-nav navbar-left">
+           <li><%= link_to "Log Out", sessions_logout_path %></li>
+         </ul>
+          <% end %>
+
          <ul class="nav navbar-nav navbar-right">
            <% if @organization %>
              <li id="org-btn"><%= link_to "I'm an Organization", organization_path(@organization) %></li>
@@ -49,7 +56,7 @@
      </div><!-- /.container-fluid -->
    </nav>
  
-  
+
 
 
     <% flash.each do |key, value| %>
