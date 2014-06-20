@@ -6,20 +6,24 @@
 @import "dashboard";
 @import "homepage";
 @import "all_organizations";
-@import "show_campaign";
+@import "new_pledges";
+@import "show_campaign.css.scss";
+@import "new_requests.css.scss";
 
 body {
-	background-image: url('./whitey.png');
 	padding: 0px;
 }
 
-li {
-	list-style-type: none;
-}
+// li {
+// 	border: 1px solid red;
+// 	list-style-type: none;
+// }
 
-div { 
-	border: 1px solid red;
-}
+
+	// div {
+	// 	border: 1px solid red;
+	// }
+
 
 .alert-danger {
 	background: none;

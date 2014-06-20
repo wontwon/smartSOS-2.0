@@ -1,3 +1,5 @@
+@import "application_colorway";
+
 body {
 	padding-bottom: 70px;
 }
@@ -15,3 +17,65 @@ body {
 .navbar a:hover {
   color: #5bc0de;
 }
+
+.navbar-brand.smart{
+  font-family: 'Nunito', sans-serif;
+  font-size: 30px;
+  color: $coral;
+}
+
+.navbar.navbar-default{
+  margin-top: 4px;
+  background-color: white;
+  border: none;
+  border-bottom: 1px solid gray;
+  border-radius: 0px;
+}
+
+.nav.navbar-nav{
+  padding: 3px;
+}
+
+.nav.navbar-nav li{
+  margin: 2px;
+}
+
+.nav.navbar-nav li a{
+  height: 50px;
+  width: auto;
+}
+
+#pledge-btn{
+  border: 1px solid $bluegray;
+  border-radius: 5px;
+  position: relative;
+}
+
+#pledge-btn a{
+  color: $bluegray;
+}
+
+#pledge-btn:hover, #pledge-btn a:hover{
+  color: white;
+  background-color: $bluegray;
+} 
+
+#org-btn{
+  border: 1px solid $coral;
+  border-radius: 5px;
+  position: relative;
+}
+
+#org-btn a{
+  color: #ff6666;
+}
+
+#org-btn:hover, #org-btn a:hover{
+  color: white;
+  background-color: $coral;
+}
+
+
+
+
+

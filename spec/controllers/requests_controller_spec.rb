@@ -32,37 +32,28 @@ describe RequestsController do
         }.to change(Request, :count).by(1)
       end
     end
-
-    context 'with zero quantity' do
-      it 'does not save the new request to the database' do
-        expect {
-          post :create, campaign_id: campaign.id,
-            request: {campaign_id: campaign.id, item_id: item.id, quantity: 0}
-        }.to_not change(Request, :count)
-      end
-    end
   end
 
-  describe 'GET #edit' do
-    it "assigns @requests to all of a campaigns' requests" do
-      item1 = Item.create(asin: '1234567891', name: 'Item1', img_url: 'url', price: 1234)
-      request1 = Request.create(campaign_id: campaign.id, item_id: item1.id, quantity: 5)
+  # describe 'GET #edit' do
+  #   it "assigns @requests to all of a campaigns' requests" do
+  #     item1 = Item.create(asin: '1234567891', name: 'Item1', img_url: 'url', price: 1234)
+  #     request1 = Request.create(campaign_id: campaign.id, item_id: item1.id, quantity: 5)
 
-      get :edit, campaign_id: campaign.id, id: request1.id
-      expect(assigns(:request)).to eq request1
-    end
-  end
+  #     get :edit, campaign_id: campaign.id, id: request1.id
+  #     expect(assigns(:request)).to eq request1
+  #   end
+  # end
 
-  describe 'PATCH #update' do
-    it "changes the quantity of a request" do
-      item = Item.create(asin: '1234567891', name: 'Item1', img_url: 'url', price: 1234)
-      request = Request.create(campaign_id: campaign.id, item_id: item.id, quantity: 5)
-      patch :update, campaign_id: campaign.id , id: request.id,
-        request: {quantity: 20}
-      request.reload
-      expect(request.quantity).to eq(20)
-    end
-  end
+  # describe 'PATCH #update' do
+  #   it "changes the quantity of a request" do
+  #     item = Item.create(asin: '1234567891', name: 'Item1', img_url: 'url', price: 1234)
+  #     request = Request.create(campaign_id: campaign.id, item_id: item.id, quantity: 5)
+  #     patch :update, campaign_id: campaign.id , id: request.id,
+  #       request: {quantity: 20}
+  #     request.reload
+  #     expect(request.quantity).to eq(20)
+  #   end
+  # end
 
   # describe 'DELETE #destroy' do
   #   it 'deletes a request' do

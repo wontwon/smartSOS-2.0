@@ -14,21 +14,27 @@ class Campaign < ActiveRecord::Base
 
   def total_requests_price
     requests = self.requests
-    requests.inject(0) do | total, request |
+    price = requests.inject(0) do | total, request |
       total + request.quantity * request.item.price_dollars
-    end.round(2)
+    end
+    '%.2f' % price
+
   end
 
   def total_pledges_price
     pledges = self.pledges
-    pledges.inject(0) do | total, pledge |
+    price = pledges.inject(0) do | total, pledge |
       total + pledge.quantity * pledge.request.item.price_dollars
-    end.round(2)
+    end
+    '%.2f' % price
   end
 
   def percentage_goal_complete
+    total_pledges_price = self.total_pledges_price.to_f
+
+
     if total_pledges_price > 0
-      ((total_pledges_price / total_requests_price) * 100).round
+      return ((total_pledges_price / total_requests_price.to_f) * 100).round
     else
       return 0
     end
@@ -36,12 +42,14 @@ class Campaign < ActiveRecord::Base
 
   def total_request_quantity
     requests = self.requests
-    requests.pluck(:quantity).reduce(:+)
+
+    requests.pluck(:quantity).reduce(:+) || 0
   end
 
   def total_pledge_quantity
     pledges = self.pledges
-    pledges.pluck(:quantity).reduce(:+)
+
+    pledges.pluck(:quantity).reduce(:+) || 0
   end
 
 

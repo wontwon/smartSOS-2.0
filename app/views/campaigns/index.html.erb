@@ -1,9 +1,37 @@
-<h1 class="dashboard-title">Which campaign would you like to support?</h1>
+<h1 class="text-center">Which campaign would you like to support?</h1>
+<hr>
+ <h4 class="tag-line text-center">It's as Easy as 1-2-3</h4>
 
-<div class="show_all_campaigns">
-  <% @campaigns.each do |campaign| %>
-    <div class="campaign col-md-4">
-      <%= render 'one_campaign', :campaign => campaign %>
+
+ <div class="container step-box">
+
+ <div class="step-box">
+    <div class="step">
+      <div class="number">
+   	    <p>1</p>
+      </div>
+      <p>Pick Campaign</p>
     </div>
-  <% end %>
+
+    <div class="step">
+      <div class="number">
+       	<p>2</p>
+      </div>
+      <p>Select Items</p>
+    </div>
+
+    <div class="step">
+      <div class="number">
+        <p>3</p>
+      </div>
+      <p>Send!</p>
+ </div>
+</div>
+
+</div>
+
+<div class="container campaign-index">
+  <div class="row">
+          <%= render 'one_campaign' %>
+  </div>
 </div>

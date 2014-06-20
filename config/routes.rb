@@ -6,7 +6,7 @@ Smartsos::Application.routes.draw do
   resources :organizations, except: [:destroy, :index]
 
   resources :campaigns, except: [:destroy] do
-    resources :requests, except: [:show, :index, :destroy]
+    resources :requests, except: [:show, :index, :edit]
     resources :pledges, only: [:new, :create]
   end
 
