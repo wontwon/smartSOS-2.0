@@ -18,8 +18,8 @@ SmartSOS is a platform that connects non-profit organizations and donors to get 
 ruby version 2.0
 ```
 
-#### The app requires amazon API keys to handle certain functions.
+### Notes
+- The app requires amazon API keys to handle certain functions.
 
-
-Please feel free to use a different markup language if you do not plan to run
+- Please feel free to use a different markup language if you do not plan to run
 <tt>rake doc:app</tt>.
