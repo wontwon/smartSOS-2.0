@@ -2,7 +2,7 @@
 
 ## About SmartSOS
 
-### SmartSOS is a platform that connects non-profit organizations and donors to get critical supplies to where they are needed. We give organizations the flexibility to specify the items they need and adjust to fluctuating needs, while giving donors instant gratification by allowing them to choose which items they donate. The result is reduced resource misallocation and complete transparency between donors and organizations. 
+SmartSOS is a platform that connects non-profit organizations and donors to get critical supplies to where they are needed. We give organizations the flexibility to specify the items they need and adjust to fluctuating needs, while giving donors instant gratification by allowing them to choose which items they donate. The result is reduced resource misallocation and complete transparency between donors and organizations. 
 
 ## Team Members
 
