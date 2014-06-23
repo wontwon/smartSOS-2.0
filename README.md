@@ -12,12 +12,12 @@ SmartSOS is a platform that connects non-profit organizations and donors to get 
 
 ## Notes
 
-This app has requires some gems to run locally. Please refer to the gem file and run bundle install after cloning. If you do not have the bundler gem, you must install it first.
+This app has some gem dependencies. Please refer to the gem file and run bundle install after cloning. If you do not have the bundler gem, you must install it first.
 
 
 ## Amazon API
 
-This app requires amazon's product marketing API keys for seeding. Please acquire a set of keys from https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html. The keys are used in the seed file to populate the database.
+This app requires amazon's product marketing API keys for seeding the database. Please acquire a set of keys from https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html. Never upload the keys directly to github. Create a secrets.yaml file in the config folder to store the keys. The .gitignore file is configured to ignore this secrets file.
 
 ## Deployment
 
@@ -25,10 +25,11 @@ smartSOS is configured for deployment to Heroku. For additional instructions, pl
 
 ## Technologies
 
-- ruby version 2.0
-- rails version 4.0.0
+- Ruby v. 2.0
+- Rails v. 4.0.0
 - Sass
-- Bootstrap3
+- Bootstrap 3
+- Amazon product marketing API
 
 
 ## Database Schema
