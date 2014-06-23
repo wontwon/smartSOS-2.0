@@ -12,25 +12,25 @@ SmartSOS is a platform that connects non-profit organizations and donors to get 
 
 ## Notes
 
-#### This app has requires some gems to run locally. Please refer to the gem file and run bundle install after cloning. If you do not have the bundler gem, you must install it first.
+This app has requires some gems to run locally. Please refer to the gem file and run bundle install after cloning. If you do not have the bundler gem, you must install it first.
 
 
-#### Amazon API usage
+## Amazon API
 
-- This app requires amazon's product marketing API keys for seeding. Please acquire a set of keys from https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html. The keys are used in the seed file to populate the database.
+This app requires amazon's product marketing API keys for seeding. Please acquire a set of keys from https://affiliate-program.amazon.com/gp/advertising/api/detail/main.html. The keys are used in the seed file to populate the database.
 
-#### Deployment
+## Deployment
 
-### smartSOS is configured for deployment to Heroku. For additional instructions, please refer to the Heroku deployment guide (https://devcenter.heroku.com/articles/git). For deployment to other platforms, please refer to documentation provided by the host.
+smartSOS is configured for deployment to Heroku. For additional instructions, please refer to the Heroku deployment guide (https://devcenter.heroku.com/articles/git). For deployment to other platforms, please refer to documentation provided by the host.
 
-#### technologies
+## Technologies
 
-ruby version 2.0
-rails version 4.0.0
-Sass
-Bootstrap3
+- ruby version 2.0
+- rails version 4.0.0
+- Sass
+- Bootstrap3
 
 
-### Database Schema
+## Database Schema
 
-[Imgur](http://i.imgur.com/FGQoQaC.png)
+![Imgur](http://i.imgur.com/FGQoQaC.png)
