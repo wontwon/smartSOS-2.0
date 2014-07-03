@@ -30,6 +30,8 @@ smartSOS is configured for deployment to Heroku. For additional instructions, pl
 - Sass
 - Bootstrap 3
 - Amazon product marketing API
+- JavaScript
+- JQuery
 
 
 ## Database Schema
